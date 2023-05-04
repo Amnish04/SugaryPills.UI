@@ -16,17 +16,17 @@
     </h2>
 
     <!-- Survey Form -->
-    <div class="survey-form-wrapper color-secondary mb-5">
-        <div [ngClass]="{'scaleHide': pageNumber !== 0 }">
+    <div class="survey-form-wrapper border mb-5">
+        <div [ngClass]="{'throw-outta-page': pageNumber !== 0 }">
             <app-identification-survey-form></app-identification-survey-form>
         </div>
 
-        <div [ngClass]="{'scaleHide': pageNumber !== 1 }">
-            <app-lifestyle-survey-form [ngClass]="{'scaleHide': pageNumber === 1 }"></app-lifestyle-survey-form>
+        <div [ngClass]="{'throw-outta-page': pageNumber !== 1 }">
+            <app-lifestyle-survey-form></app-lifestyle-survey-form>
         </div>
         
-        <div [ngClass]="{'scaleHide': pageNumber !== 2 }">
-            <app-symptoms-survey-form [ngClass]="{'scaleHide': pageNumber === 2 }"></app-symptoms-survey-form>
+        <div [ngClass]="{'throw-outta-page': pageNumber !== 2 }">
+            <app-symptoms-survey-form></app-symptoms-survey-form>
         </div>
     </div>
 

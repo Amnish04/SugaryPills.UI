@@ -2,6 +2,7 @@
     min-height: 500px;
 }
 
-.scaleHide {
-    scale: 0;
+.throw-outta-page {
+    position: fixed;
+    top: -100000px;
 }
