@@ -11,9 +11,11 @@
 :root {
     /* Colors */
     --color-primary: white;
+    --color-secondary: rgba(5, 5, 131, 0.862);
     --color-accent: #536dfe;
+
     --text-color-primary: black;
-    --text-color-secondary: rgb(0, 0, 156);
+    --text-color-light: white;
 
     /* Fonts */
     /* --font-primary: 'Poppins', sans-serif; */
@@ -21,6 +23,11 @@
     --font-secondary: Roboto, "Helvetica Neue", sans-serif;
     --font-headings: 'Bree Serif', serif;
     --font-fancy: 'Arima', 'Times New Roman', Times, serif, cursive;
+}
+
+::selection {
+    background-color: goldenrod;
+    color: var(--text-color-primary);
 }
 
 @tailwind base;
@@ -34,6 +41,10 @@ body { margin: 0; font-family: Roboto, var(--font-primary), sans-serif; }
 h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-primary);
     font-weight: bold;
+}
+
+a:hover {
+    text-decoration: underline;
 }
 
 .btn {
@@ -59,15 +70,27 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .color-primary {
-    color: var(--color-primary)
+    background-color: var(--color-primary)
+}
+.color-secondary {
+    background-color: var(--color-secondary)
 }
 .color-accent {
-    color: var(--color-accent)
+    background-color: var(--color-accent)
 }
 
 .text-color-primary {
     color: var(--text-color-primary)
 }
 .text-color-secondary {
-    color: var(--text-color-secondary)
+    color: var(--color-secondary)
+}
+.text-color-light {
+    color: var(--text-color-light)
+}
+
+/* Layout */
+.container-80 {
+    width: 80%;
+    max-width: 1000px;
 }
