@@ -1,3 +1,32 @@
+<!-- Page Header -->
+<section class="relative">
+    <img class="w-full" src="../../../assets/images/waves.png" alt="Stupid Waves">
+    <div class="text-center text-5xl text-color-light absolute-center flex items-center justify-center">
+        <h1>
+            {{pageTitle}}
+        </h1>
+    </div>
+    
+</section>
+
+<!-- Main Content -->
 <section class="container-80 mx-auto">
-    <p>survey-page works!</p>
+    <h2 class="text-4xl">
+        {{surveyTitle}}
+    </h2>
+
+    <!-- Survey Form -->
+    <div class="survey-form-wrapper color-secondary mb-5">
+        <p class="text-color-light text-center text-lg">
+            {{pageNumber}}
+        </p>
+    </div>
+
+    <!-- Controls -->
+    <div class="flex justify-between mb-10">
+        <button [disabled]="prevDisabled" (click)="previousClicked()" mat-raised-button color="accent">Previous Page</button>
+        <button [disabled]="nextDisabled" (click)="nextClicked()" *ngIf="!showSubmit" mat-raised-button color="accent">Next Page</button>
+        <button *ngIf="showSubmit" mat-raised-button color="accent">Finish Survey</button>
+    </div>
+    
 </section>

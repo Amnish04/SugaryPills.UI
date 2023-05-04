@@ -94,3 +94,9 @@ a:hover {
     width: 80%;
     max-width: 1000px;
 }
+
+/* Positioning */
+.absolute-center {
+    position: absolute;
+    inset: 0;
+}
