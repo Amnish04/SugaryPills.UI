@@ -1,3 +1,7 @@
 .survey-form-wrapper {
     min-height: 500px;
 }
+
+.scaleHide {
+    scale: 0;
+}

@@ -3,7 +3,7 @@
         <!-- Brand Logo -->
         <li>
             <div class="flex items-center">
-                <a routerLink="/home"><img src="../../../assets/images/logo.png" alt="Brand Logo"></a>
+                <a routerLink="/home" aria-label="Click to go to home page"><img title="DIA" src="../../../assets/images/logo.png" alt="Brand Logo"></a>
                 <!-- App Name -->
                 <p class="text-3xl">{{appTitle}}</p>
             </div>
@@ -14,7 +14,7 @@
             <a [routerLink]="['about']">About Diabetes</a>
         </li>
         <li class="text-color-secondary text-lg">
-            <a class="cursor-pointer">Health-care providers</a>
+            <a [routerLink]="['']" class="cursor-pointer">Health-care providers</a>
         </li>
         <li class="text-color-secondary text-lg">
             <a [routerLink]="['awareness']">How your data can help</a>
@@ -22,7 +22,11 @@
     </ul>
 
     <!-- Right Part -->
-    <div>
-        <button [routerLink]="['survey']" mat-raised-button color="accent" style="border-radius: 25px">Take Survey</button>
+    <div >
+        <button *ngIf="!isHome" [routerLink]="['survey']" mat-raised-button color="accent" style="border-radius: 25px">Take Survey</button>
+        <button matTooltip="Only for Health Research admins" 
+        *ngIf="isHome" (click)="openAuthForm()" mat-raised-button color="accent" style="border-radius: 25px">
+            Admin Portal
+        </button>
     </div>
 </nav>

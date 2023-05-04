@@ -11,7 +11,12 @@ import { DiaHeaderComponent } from './components/dia-header/dia-header.component
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { AboutPageComponent } from './pages/info-pages/about-page/about-page.component';
 import { AwarenessPageComponent } from './pages/info-pages/awareness-page/awareness-page.component';
-import { SurveyPageComponent } from './pages/survey-page/survey-page.component'; 
+import { SurveyPageComponent } from './pages/survey-page/survey-page.component';
+import { IdentificationSurveyFormComponent } from './components/survey/identification-survey-form/identification-survey-form.component';
+import { LifestyleSurveyFormComponent } from './components/survey/lifestyle-survey-form/lifestyle-survey-form.component';
+import { SymptomsSurveyFormComponent } from './components/survey/symptoms-survey-form/symptoms-survey-form.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import { LoginFormComponent } from './components/auth/login-form/login-form.component'; 
 
 @NgModule({
   declarations: [
@@ -20,7 +25,11 @@ import { SurveyPageComponent } from './pages/survey-page/survey-page.component';
     HomePageComponent,
     AboutPageComponent,
     AwarenessPageComponent,
-    SurveyPageComponent
+    SurveyPageComponent,
+    IdentificationSurveyFormComponent,
+    LifestyleSurveyFormComponent,
+    SymptomsSurveyFormComponent,
+    LoginFormComponent
   ],
   imports: [
     BrowserModule,
@@ -28,6 +37,8 @@ import { SurveyPageComponent } from './pages/survey-page/survey-page.component';
     BrowserAnimationsModule,
     MatButtonModule,
     MatIconModule,
+    MatTooltipModule,
+    MatDialogModule,
     MatTooltipModule
   ],
   providers: [],
