@@ -3,7 +3,7 @@
         <!-- Brand Logo -->
         <li>
             <div class="flex items-center">
-                <a routerLink="/home" aria-label="Click to go to home page"><img title="DIA" src="../../../assets/images/logo.png" alt="Brand Logo"></a>
+                <a routerLink="/home" aria-label="Click to go to home page"><img matTooltip="DIA" src="../../../assets/images/logo.png" alt="Brand Logo"></a>
                 <!-- App Name -->
                 <p class="text-3xl">{{appTitle}}</p>
             </div>
@@ -23,14 +23,19 @@
 
     <!-- Right Part -->
     <div >
-        <button *ngIf="!isHome" [routerLink]="['survey']" mat-raised-button color="accent" style="border-radius: 25px">
+        <button *ngIf="!isHome && !isSurvey" [routerLink]="['survey']" mat-raised-button color="accent" style="border-radius: 25px">
             <mat-icon>perm_device_information</mat-icon>
             Take Survey
         </button>
-        <button matTooltip="Only for Health Research admins"
-        *ngIf="isHome" (click)="openAuthForm()" mat-raised-button color="accent" style="border-radius: 25px">
+        <button *ngIf="isHome"
+        (click)="openAuthForm()" matTooltip="Only for Health Research admins" mat-raised-button color="accent" style="border-radius: 25px">
             <mat-icon>login</mat-icon>
             Admin Portal
+        </button>
+        <button *ngIf="isSurvey"
+        [routerLink]="['home']" matTooltip="Go to home page?" mat-raised-button color="accent" style="border-radius: 25px">
+            <mat-icon>home</mat-icon>
+            Exit
         </button>
     </div>
 </nav>

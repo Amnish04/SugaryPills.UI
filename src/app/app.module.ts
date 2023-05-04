@@ -16,7 +16,9 @@ import { IdentificationSurveyFormComponent } from './components/survey/identific
 import { LifestyleSurveyFormComponent } from './components/survey/lifestyle-survey-form/lifestyle-survey-form.component';
 import { SymptomsSurveyFormComponent } from './components/survey/symptoms-survey-form/symptoms-survey-form.component';
 import {MatDialogModule} from '@angular/material/dialog';
-import { LoginFormComponent } from './components/auth/login-form/login-form.component'; 
+import { LoginFormComponent } from './components/auth/login-form/login-form.component';
+import { ReportsPageComponent } from './pages/reports-page/reports-page.component';
+import {MatSnackBarModule} from '@angular/material/snack-bar'; 
 
 @NgModule({
   declarations: [
@@ -29,7 +31,8 @@ import { LoginFormComponent } from './components/auth/login-form/login-form.comp
     IdentificationSurveyFormComponent,
     LifestyleSurveyFormComponent,
     SymptomsSurveyFormComponent,
-    LoginFormComponent
+    LoginFormComponent,
+    ReportsPageComponent
   ],
   imports: [
     BrowserModule,
@@ -39,7 +42,8 @@ import { LoginFormComponent } from './components/auth/login-form/login-form.comp
     MatIconModule,
     MatTooltipModule,
     MatDialogModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatSnackBarModule
   ],
   providers: [],
   bootstrap: [AppComponent]
