@@ -45,10 +45,6 @@ export class DiaHeaderComponent implements OnInit {
         const dialogRef = this.dialog.open(LoginFormComponent, {
             // data: {name: this.name, animal: this.animal},
         });
-    
-        dialogRef.afterClosed().subscribe(result => {
-            console.log("Paindi aa fer Dhakk Champion?")
-        });
     }
 
     onAdminPortalClick() {
