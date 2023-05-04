@@ -1,0 +1,26 @@
+<nav class="px-5 border flex justify-between items-center">
+    <ul class="nav-header flex items-center h-full gap-10">
+        <!-- Brand Logo -->
+        <li>
+            <div class="flex items-center">
+                <a routerLink="/home"><img src="../../../assets/images/logo.png" alt="Brand Logo"></a>
+                <!-- App Name -->
+                <p class="text-color-secondary text-3xl">{{appTitle}}</p>
+            </div>
+        </li>
+
+        <!-- Links -->
+        <li class="text-lg">
+            <a routerLink="/">About Diabetes</a>
+        </li>
+        <li class="text-lg">
+            <a routerLink="/">Health-care providers</a>
+        </li>
+        <li class="text-lg">
+            <a routerLink="/">How your data can help</a>
+        </li>
+    </ul>
+
+    <!-- Right Part -->
+    <button routerLink="" mat-raised-button color="accent" style="border-radius: 25px">Take Survey</button>
+</nav>

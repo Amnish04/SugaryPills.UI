@@ -4,19 +4,23 @@
 @import url('https://fonts.googleapis.com/css2?family=Arima:wght@400;500;600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
 
+/* Latest Imports */
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700;900&display=swap');
+
+
 :root {
     /* Colors */
-    --color-accent: palevioletred;
-    --bg-pagination: white;
-    --pagination-color: black;
+    --color-primary: white;
+    --color-accent: #536dfe;
+    --text-color-primary: black;
+    --text-color-secondary: rgb(0, 0, 156);
 
     /* Fonts */
-    --font-primary: 'Poppins', sans-serif;
+    /* --font-primary: 'Poppins', sans-serif; */
+    --font-primary: 'Source Sans Pro', sans-serif;
     --font-secondary: Roboto, "Helvetica Neue", sans-serif;
-    --font-ternary: 'Arima', 'Times New Roman', Times, serif, cursive;
-    --font-4: 'Bree Serif', serif;
-
-    --font-fancy: 'Nerko One', 'cursive';
+    --font-headings: 'Bree Serif', serif;
+    --font-fancy: 'Arima', 'Times New Roman', Times, serif, cursive;
 }
 
 @tailwind base;
@@ -24,10 +28,46 @@
 @tailwind utilities;
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { margin: 0; font-family: Roboto, var(--font-primary), sans-serif; }
 
 
 h1, h2, h3, h4, h5, h6 {
     font-family: var(--font-primary);
     font-weight: bold;
+}
+
+.btn {
+    padding: 0.5em; 
+    font-size: 1.25em; 
+    transition: 200ms ease-in-out; 
+    align-self: center;
+
+}
+
+/* Color + Font Classes */
+.font-primary {
+    font-family: var(--font-primary);
+}
+.font-secondary {
+    font-family: var(--font-secondary);
+}
+.font-headings {
+    font-family: var(--font-headings);
+}
+.font-fancy {
+    font-family: var(--font-fancy);
+}
+
+.color-primary {
+    color: var(--color-primary)
+}
+.color-accent {
+    color: var(--color-accent)
+}
+
+.text-color-primary {
+    color: var(--text-color-primary)
+}
+.text-color-secondary {
+    color: var(--text-color-secondary)
 }

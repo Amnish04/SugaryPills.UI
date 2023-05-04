@@ -3,6 +3,8 @@
 // For more information: https://material.angular.io/guide/theming
 @use '@angular/material' as mat;
 // Plus imports for other components in your app.
+@import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
 
 // Include the common styles for Angular Material. We include this here so that you only
 // have to load a single css file for Angular Material in your app.
@@ -16,7 +18,11 @@
 // $SugaryPillsUI-primary: mat.define-palette(mat.$indigo-palette);
 // $SugaryPillsUI-accent: mat.define-palette(mat.$pink-palette, A200, A100, A400);
 $SugaryPillsUI-primary: mat.define-palette(mat.$blue-grey-palette);
-$SugaryPillsUI-accent: mat.define-palette(mat.$blue-palette, A200, A100, A400);
+$SugaryPillsUI-accent: mat.define-palette(mat.$indigo-palette, A200, A100, A400);
+
+// $my-typography: mat.define-typography-config(
+//     $font-family: 'Roboto'
+// );
 
 // The warn palette is optional (defaults to red).
 $SugaryPillsUI-warn: mat.define-palette(mat.$red-palette);
@@ -28,7 +34,8 @@ $SugaryPillsUI-theme: mat.define-light-theme((
     primary: $SugaryPillsUI-primary,
     accent: $SugaryPillsUI-accent,
     warn: $SugaryPillsUI-warn,
-  )
+  ),
+//   typography: $my-typography
 ));
 
 // Include theme styles for core and each component used in your app.
