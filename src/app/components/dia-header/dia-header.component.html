@@ -11,18 +11,18 @@
 
         <!-- Links -->
         <li class="text-color-secondary text-lg">
-            <a routerLink="/">About Diabetes</a>
+            <a [routerLink]="['about']">About Diabetes</a>
         </li>
         <li class="text-color-secondary text-lg">
-            <a routerLink="/">Health-care providers</a>
+            <a class="cursor-pointer">Health-care providers</a>
         </li>
         <li class="text-color-secondary text-lg">
-            <a routerLink="/">How your data can help</a>
+            <a [routerLink]="['awareness']">How your data can help</a>
         </li>
     </ul>
 
     <!-- Right Part -->
     <div>
-        <button routerLink="" mat-raised-button color="accent" style="border-radius: 25px">Take Survey</button>
+        <button [routerLink]="['survey']" mat-raised-button color="accent" style="border-radius: 25px">Take Survey</button>
     </div>
 </nav>
