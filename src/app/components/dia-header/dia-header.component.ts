@@ -3,6 +3,7 @@ import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { LoginFormComponent } from '../auth/login-form/login-form.component';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { AuthService } from 'src/app/services/authentication/auth.service';
 
 @Component({
   selector: 'app-dia-header',
@@ -16,7 +17,8 @@ export class DiaHeaderComponent implements OnInit {
         public dialog: MatDialog,
         private router: Router,
         private activatedRoute: ActivatedRoute,
-        private snackBar: MatSnackBar
+        private snackBar: MatSnackBar,
+        private authService: AuthService
     ) { }
 
     ngOnInit(): void {
@@ -47,5 +49,14 @@ export class DiaHeaderComponent implements OnInit {
         dialogRef.afterClosed().subscribe(result => {
             console.log("Paindi aa fer Dhakk Champion?")
         });
+    }
+
+    onAdminPortalClick() {
+        if (this.authService.loggedAsAdmin) {
+            this.router.navigate(['reports']);
+        }
+        else {
+            this.openAuthForm();
+        }
     }
 }
