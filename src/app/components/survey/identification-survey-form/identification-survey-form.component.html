@@ -19,7 +19,7 @@
             <div class="w-3/5">
                 <label id="gender-radio-group-label">Gender</label>
                     <br>
-                    <mat-radio-group formControlName="gender" [color]="'accent'"
+                    <mat-radio-group formControlName="gender" [color]="'accent'" (change)="onGenderChange($event)"
                     aria-labelledby="status-radio-group-label">
                         <mat-radio-button  class="m-2" [value]="'Male'">
                             Male
@@ -95,7 +95,7 @@
             <div class="w-3/5">
                 <label id="isPregnant-radio-group-label">Are you currently expecting a child?</label>
                     <br>
-                    <mat-radio-group formControlName="isPregnant" [color]="'accent'"
+                    <mat-radio-group formControlName="isPregnant" [color]="'accent'" [disabled]="identityForm.get('gender')?.value === 'Male'"
                     aria-labelledby="status-radio-group-label">
                         <mat-radio-button  class="m-2" [value]="true">
                             Yes
@@ -104,6 +104,7 @@
                             No
                         </mat-radio-button>
 
+                        <p *ngIf="identityForm.get('gender')?.value === 'Male'" class="text-red-500">Not applicable to males</p>
                         <mat-error *ngIf="identityForm.get('isPregnant')?.touched && !identityForm.get('isPregnant')?.valid">
                             Please select a valid value
                         </mat-error>

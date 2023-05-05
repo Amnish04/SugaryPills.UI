@@ -40,4 +40,9 @@ export class IdentificationSurveyFormComponent implements OnInit {
         this.formBreakpoint = (event.target.innerWidth <= 600) ? 1 : 2;
         this.rowHeight = (event.target.innerWidth <= 600) ? '5:2' : '5:1';
     }
+
+    onGenderChange(evt: any) {
+        if (evt.value === 'Male')
+        this.identityForm.get('isPregnant')?.setValue(false);
+    }
 }
