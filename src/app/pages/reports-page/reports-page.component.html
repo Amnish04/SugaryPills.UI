@@ -1,11 +1,10 @@
 <section class="container-80 mx-auto">
-    <p>reports-page works!</p>
-    <canvas baseChart
-    [type]="'pie'"
-    [datasets]="pieChartDatasets"
-    [labels]="pieChartLabels"
-    [options]="pieChartOptions"
-    [plugins]="pieChartPlugins"
-    [legend]="pieChartLegend">
-    </canvas>
+    <mat-tab-group color="accent">
+        <mat-tab label="Reports"> 
+            <app-reports-graphs></app-reports-graphs>
+        </mat-tab>
+        <mat-tab label="All Entries"> 
+            <app-reports-grid></app-reports-grid> 
+        </mat-tab>
+    </mat-tab-group>
 </section>

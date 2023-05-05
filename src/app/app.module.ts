@@ -30,6 +30,9 @@ import { DoctorPageComponent } from './pages/info-pages/doctor-page/doctor-page.
 import { HttpClientModule } from '@angular/common/http';
 import { RiskPageComponent } from './pages/risk-page/risk-page.component';
 import { NgChartsModule } from 'ng2-charts';
+import { ReportsGridComponent } from './components/reports/reports-grid/reports-grid.component';
+import { ReportsGraphsComponent } from './components/reports/reports-graphs/reports-graphs.component';
+import {MatTabsModule} from '@angular/material/tabs'; 
 
 @NgModule({
   declarations: [
@@ -45,7 +48,9 @@ import { NgChartsModule } from 'ng2-charts';
     LoginFormComponent,
     ReportsPageComponent,
     DoctorPageComponent,
-    RiskPageComponent
+    RiskPageComponent,
+    ReportsGridComponent,
+    ReportsGraphsComponent
   ],
   imports: [
     BrowserModule,
@@ -65,7 +70,8 @@ import { NgChartsModule } from 'ng2-charts';
     MatRadioModule,
     MatCheckboxModule,
     HttpClientModule,
-    NgChartsModule
+    NgChartsModule,
+    MatTabsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
