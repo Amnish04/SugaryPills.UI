@@ -6,6 +6,7 @@ import { AwarenessPageComponent } from '../pages/info-pages/awareness-page/aware
 import { SurveyPageComponent } from '../pages/survey-page/survey-page.component';
 import { ReportsPageComponent } from '../pages/reports-page/reports-page.component';
 import { canActivateGuard } from '../services/authentication/auth.guard';
+import { DoctorPageComponent } from '../pages/info-pages/doctor-page/doctor-page.component';
 
 const routes: Routes = [
     {
@@ -17,6 +18,11 @@ const routes: Routes = [
         path: 'about', 
         pathMatch: 'full', 
         component: AboutPageComponent
+    },
+    {
+        path: 'doctors', 
+        pathMatch: 'full', 
+        component: DoctorPageComponent
     },
     {
         path: 'awareness',

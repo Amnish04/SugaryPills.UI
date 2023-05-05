@@ -10,6 +10,7 @@ export interface Entry {
     }
 }
 
+// Not in use for now, mapping on backend
 export const Question2OptionsMapping = {
     once: "once a week",
     sometimes: "2-5 times a week",

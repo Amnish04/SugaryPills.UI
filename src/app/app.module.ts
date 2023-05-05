@@ -26,6 +26,7 @@ import {MatInputModule} from '@angular/material/input';
 import { ReactiveFormsModule } from '@angular/forms';
 import {MatRadioModule} from '@angular/material/radio';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import { DoctorPageComponent } from './pages/info-pages/doctor-page/doctor-page.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     LifestyleSurveyFormComponent,
     SymptomsSurveyFormComponent,
     LoginFormComponent,
-    ReportsPageComponent
+    ReportsPageComponent,
+    DoctorPageComponent
   ],
   imports: [
     BrowserModule,
