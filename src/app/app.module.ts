@@ -19,6 +19,11 @@ import {MatDialogModule} from '@angular/material/dialog';
 import { LoginFormComponent } from './components/auth/login-form/login-form.component';
 import { ReportsPageComponent } from './pages/reports-page/reports-page.component';
 import {MatSnackBarModule} from '@angular/material/snack-bar'; 
+import {MatGridListModule} from '@angular/material/grid-list';
+import {MatFormFieldModule} from '@angular/material/form-field'; 
+import {MatSelectModule} from '@angular/material/select';
+import {MatInputModule} from '@angular/material/input'; 
+import { ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -38,12 +43,17 @@ import {MatSnackBarModule} from '@angular/material/snack-bar';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    ReactiveFormsModule,
     MatButtonModule,
     MatIconModule,
     MatTooltipModule,
     MatDialogModule,
     MatTooltipModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatGridListModule,
+    MatFormFieldModule,
+    MatSelectModule,
+    MatInputModule
   ],
   providers: [],
   bootstrap: [AppComponent]

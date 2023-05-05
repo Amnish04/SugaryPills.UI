@@ -1,1 +1,52 @@
-<p>identification-survey-form works!</p>
+<form [formGroup]="identityForm" class="w-full h-full border overflow-x-hidden overflow-y-auto" style="height: 500px;">
+    <mat-grid-list cols="2" rowHeight="5:1">
+        <mat-grid-tile>
+            <!-- First Name -->
+            <mat-form-field class="w-3/5">
+                <mat-label>First Name</mat-label>
+                <input type="text" matInput placeholder="First Name" required="true"
+                formControlName="firstName">
+                
+                <mat-error>
+                    Field is required
+                </mat-error>
+            </mat-form-field>
+        </mat-grid-tile>
+
+        <mat-grid-tile>
+            <mat-form-field class="w-3/5">
+                <mat-label>Last Name</mat-label>
+                <input type="text" matInput placeholder="Last Name" required="true"
+                formControlName="lastName">
+                
+                <mat-error>
+                    Field is required
+                </mat-error>
+            </mat-form-field>
+        </mat-grid-tile>
+
+        <mat-grid-tile>
+
+        </mat-grid-tile>
+
+        <mat-grid-tile>
+
+        </mat-grid-tile>
+
+        <mat-grid-tile>
+
+        </mat-grid-tile>
+
+        <mat-grid-tile>
+            
+        </mat-grid-tile>
+
+        <mat-grid-tile>
+
+        </mat-grid-tile>
+
+        <mat-grid-tile>
+
+        </mat-grid-tile>
+    </mat-grid-list>      
+</form>

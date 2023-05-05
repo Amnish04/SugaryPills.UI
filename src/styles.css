@@ -100,3 +100,15 @@ a:hover {
     position: absolute;
     inset: 0;
 }
+
+/* Material Style Overrides */
+.mat-form-field-appearance-fill .mat-form-field-flex,
+.mdc-text-field--filled:not(.mdc-text-field--disabled),
+.mdc-text-field--focused,
+.mdc-text-field--filled:hover {
+    background-color: #fff; 
+}
+
+.mat-form-field-appearance-fill .mat-form-field-flex {
+    background-color: white;
+}
