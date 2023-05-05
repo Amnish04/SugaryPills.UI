@@ -28,6 +28,7 @@ import {MatRadioModule} from '@angular/material/radio';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import { DoctorPageComponent } from './pages/info-pages/doctor-page/doctor-page.component';
 import { HttpClientModule } from '@angular/common/http';
+import { RiskPageComponent } from './pages/risk-page/risk-page.component';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,8 @@ import { HttpClientModule } from '@angular/common/http';
     SymptomsSurveyFormComponent,
     LoginFormComponent,
     ReportsPageComponent,
-    DoctorPageComponent
+    DoctorPageComponent,
+    RiskPageComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,21 @@
+import { ActivatedRoute } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+
+@Component({
+  selector: 'app-risk-page',
+  templateUrl: './risk-page.component.html',
+  styleUrls: ['./risk-page.component.css']
+})
+export class RiskPageComponent implements OnInit {
+    riskPoints: any; 
+    riskStatus: any;
+
+    constructor(
+        private activatedRoute: ActivatedRoute
+    ) { }
+
+    ngOnInit(): void {
+        this.riskPoints = (this.activatedRoute.snapshot.queryParams as any).riskPoints ?? 'Not calculated yet';
+        this.riskStatus = (this.activatedRoute.snapshot.queryParams as any).riskStatus ?? 'Nothing to show yet!';
+    }
+}

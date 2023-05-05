@@ -7,6 +7,7 @@ import { SurveyPageComponent } from '../pages/survey-page/survey-page.component'
 import { ReportsPageComponent } from '../pages/reports-page/reports-page.component';
 import { canActivateGuard } from '../services/authentication/auth.guard';
 import { DoctorPageComponent } from '../pages/info-pages/doctor-page/doctor-page.component';
+import { RiskPageComponent } from '../pages/risk-page/risk-page.component';
 
 const routes: Routes = [
     {
@@ -33,6 +34,11 @@ const routes: Routes = [
         path: 'survey',
         pathMatch: 'full', 
         component: SurveyPageComponent
+    },
+    {
+        path: 'risk',
+        pathMatch: 'full', 
+        component: RiskPageComponent
     },
     {
         path: 'reports',

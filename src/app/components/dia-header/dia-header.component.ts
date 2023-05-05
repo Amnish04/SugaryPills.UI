@@ -30,7 +30,7 @@ export class DiaHeaderComponent implements OnInit {
                     this.snackBar.open('Admins need to login to view reports.', 'Ok');
                 }
             }
-        })
+        });
     }
 
     get isHome() {

@@ -5,6 +5,7 @@ import { LifestyleSurveyFormComponent } from 'src/app/components/survey/lifestyl
 import { SymptomsSurveyFormComponent } from 'src/app/components/survey/symptoms-survey-form/symptoms-survey-form.component';
 import { SurveyService } from 'src/app/services/survey/survey.service';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-survey-page',
@@ -23,7 +24,8 @@ export class SurveyPageComponent {
 
     constructor(
         private surveyService: SurveyService,
-        private snackBar: MatSnackBar
+        private snackBar: MatSnackBar,
+        private router: Router
     ) { }
 
     //#region General Getters
@@ -92,9 +94,15 @@ export class SurveyPageComponent {
         }
 
         this.surveyService.addEntry(payload)
-        .subscribe(res => {
+        .subscribe((res: any) => {
             console.log(res);
             this.snackBar.open('Successfull saved entry!', 'Done');
+            this.router.navigate(['risk'], {
+                queryParams: {
+                    riskPoints: res.surveyResult.totalPoint,
+                    riskStatus: res.surveyResult.risk
+                }
+            });
             this.submitClicked = false;
         },
         err => {
