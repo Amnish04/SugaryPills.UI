@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Question2OptionsMapping, Question3OptionsMapping } from 'src/app/models/survey.model';
 
 @Component({
   selector: 'app-lifestyle-survey-form',
@@ -41,19 +42,20 @@ export class LifestyleSurveyFormComponent {
                 finances: [null],
                 other: [null],
             }),
-
-
-            gender: ['', [Validators.required]],
-            height: ['', [Validators.required, Validators.min(0), Validators.max(110)]],
-            weight: ['', [Validators.required, Validators.min(0), Validators.max(350)]],
-            email: ['', [Validators.required, Validators.email]],
-            familyHasDiabetes: ['', [Validators.required]],
-            isPregnant: ['', [Validators.required]],
         });
     }
 
+    formatFormToPayload(formValues: any) {
+        let payload = JSON.parse(JSON.stringify(formValues));
+
+        payload.question2 = (Question2OptionsMapping as any)[payload.question2];
+        payload.question3 = (Question3OptionsMapping as any)[payload.question3];
+
+        return payload;
+    }
+
     logValues() {
-        console.log(this.lifestyleForm.value);
+        console.log(this.formatFormToPayload(this.lifestyleForm.value));
         console.log(this.lifestyleForm.valid);
     }
 
