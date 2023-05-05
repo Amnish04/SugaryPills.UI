@@ -1,113 +1,145 @@
-<form autocomplete="off" [formGroup]="identityForm" class="w-full h-full border overflow-x-hidden overflow-y-auto" style="height: 500px;">
+<form class="text-left" autocomplete="off" [formGroup]="lifestyleForm" class="w-full h-full border overflow-x-hidden overflow-y-auto" style="height: 500px;">
     <mat-grid-list [cols]="formBreakpoint" [rowHeight]="rowHeight" (window:resize)="onResize($event)">
 
-        <!-- Age -->
+        <!-- Devil Foods -->
         <mat-grid-tile>
-            <mat-form-field class="w-3/5">
-                <mat-label>Age</mat-label>
-                <input type="number" matInput placeholder="First Name"
-                formControlName="age">
-                
-                <mat-error>
-                    Please enter a valid value
-                </mat-error>
-            </mat-form-field>
-        </mat-grid-tile>
+            <div class="w-9/10" formGroupName="question1">
+                <label for="foodCheckbox">1. Please select those out of the following white devils that make up a significant part of your diet. (Select one or more)</label>
+                <br>
+                <div id="foodCheckbox" role="checkbox" class="flex justify-around mt-4">
+                    <mat-checkbox
+                    [color]="'accent'"
+                    formControlName="bread"
+                    >
+                        White Bread
+                    </mat-checkbox>
 
-        <!-- Gender -->
-        <mat-grid-tile>
-            <div class="w-3/5">
-                <label id="gender-radio-group-label">Gender</label>
-                    <br>
-                    <mat-radio-group formControlName="gender" [color]="'accent'"
-                    aria-labelledby="status-radio-group-label">
-                        <mat-radio-button  class="m-2" [value]="'Male'">
-                            Male
-                        </mat-radio-button>
-                        <mat-radio-button class="m-2" [value]="'Female'">
-                            Female
-                        </mat-radio-button>
+                    <mat-checkbox
+                    [color]="'accent'"
+                    formControlName="sugar"
+                    >
+                        Sugar
+                    </mat-checkbox>
 
-                        <mat-error *ngIf="identityForm.get('gender')?.touched && !identityForm.get('gender')?.valid">
-                            Please select a valid value
-                        </mat-error>
-                    </mat-radio-group>
+                    <mat-checkbox
+                    [color]="'accent'"
+                    formControlName="salt"
+                    >
+                        Salt
+                    </mat-checkbox>
+
+                    <mat-checkbox
+                    [color]="'accent'"
+                    formControlName="flour"
+                    >
+                        Flour
+                    </mat-checkbox>
+                </div>
             </div>
         </mat-grid-tile>
 
+        <!-- Junk Food -->
         <mat-grid-tile>
-            <mat-form-field class="w-3/5">
-                <mat-label>Height (in inches)</mat-label>
-                <input type="number" matInput placeholder="Height (in inches)"
-                formControlName="height">
-                
-                <mat-error>
-                    Please enter a valid value
-                </mat-error>
-            </mat-form-field>
-        </mat-grid-tile>
-
-        <mat-grid-tile>
-            <mat-form-field class="w-3/5">
-                <mat-label>Weight (in pounds)</mat-label>
-                <input type="number" matInput placeholder="Weight (in pounds)"
-                formControlName="weight">
-                
-                <mat-error>
-                    Please enter a valid value
-                </mat-error>
-            </mat-form-field>
-        </mat-grid-tile>
-
-        <mat-grid-tile>
-            <mat-form-field class="w-3/5">
-                <mat-label>Email</mat-label>
-                <input type="email" matInput placeholder="Email here"
-                formControlName="email">
-                
-                <mat-error>
-                    Please enter a valid value
-                </mat-error>
-            </mat-form-field>
-        </mat-grid-tile>
-
-        <mat-grid-tile>
-            <div class="w-3/5">
-                <label id="familyHasDiabetes-radio-group-label">Do you have any family members with diabetes?</label>
+            <div class="w-9/10">
+                <label id="diet-checkbox-group-label">2. How often do you have unhealthy/junk food per week?</label>
                     <br>
-                    <mat-radio-group formControlName="familyHasDiabetes" [color]="'accent'"
-                    aria-labelledby="status-radio-group-label">
-                        <mat-radio-button  class="m-2" [value]="true">
-                            Yes
-                        </mat-radio-button>
-                        <mat-radio-button class="m-2" [value]="false">
-                            No
-                        </mat-radio-button>
+                <mat-radio-group formControlName="question2" [color]="'accent'" aria-labelledby="diet-checkbox-group-label">
+                    <mat-radio-button  class="m-2" [value]="'once'">
+                        Once a Week
+                    </mat-radio-button>
+                    <mat-radio-button class="m-2" [value]="'sometimes'">
+                        2-5 times a week
+                    </mat-radio-button>
+                    <mat-radio-button class="m-2" [value]="'everyday'">
+                        Everyday
+                    </mat-radio-button>
 
-                        <mat-error *ngIf="identityForm.get('familyHasDiabetes')?.touched && !identityForm.get('familyHasDiabetes')?.valid">
-                            Please select a valid value
-                        </mat-error>
-                    </mat-radio-group>
+                    <mat-error *ngIf="lifestyleForm.get('question2')?.touched && !lifestyleForm.get('question2')?.valid">
+                        Please select a valid value
+                    </mat-error>
+                </mat-radio-group>
             </div>
         </mat-grid-tile>
 
         <mat-grid-tile>
             <div class="w-3/5">
-                <label id="isPregnant-radio-group-label">Are you currently expecting a child?</label>
+                <label id="diet-checkbox-group-label">3. How often do you go for a general medical checkup?</label>
                     <br>
-                    <mat-radio-group formControlName="isPregnant" [color]="'accent'"
-                    aria-labelledby="status-radio-group-label">
-                        <mat-radio-button  class="m-2" [value]="true">
-                            Yes
-                        </mat-radio-button>
-                        <mat-radio-button class="m-2" [value]="false">
-                            No
-                        </mat-radio-button>
+                <mat-radio-group formControlName="question3" [color]="'accent'" aria-labelledby="diet-checkbox-group-label">
+                    <mat-radio-button  class="m-2" [value]="'month'">
+                        Once a Month
+                    </mat-radio-button>
+                    <mat-radio-button class="m-2" [value]="'quarter'">
+                        Once a Quarter
+                    </mat-radio-button>
+                    <mat-radio-button class="m-2" [value]="'year'">
+                        Once a Year
+                    </mat-radio-button>
 
-                        <mat-error *ngIf="identityForm.get('isPregnant')?.touched && !identityForm.get('isPregnant')?.valid">
-                            Please select a valid value
-                        </mat-error>
-                    </mat-radio-group>
+                    <mat-error *ngIf="lifestyleForm.get('question3')?.touched && !lifestyleForm.get('question3')?.valid">
+                        Please select a valid value
+                    </mat-error>
+                </mat-radio-group>
+            </div>
+        </mat-grid-tile>
+
+        <mat-grid-tile>
+            <div class="w-9/10" formGroupName="question4">
+                <label>4. Do you experience any of the following in your living environment?</label>
+                <br>
+                <div role="checkbox" class="flex justify-around mt-4">
+                    <mat-checkbox
+                    [color]="'accent'"
+                    formControlName="airPollution"
+                    >
+                        Air Pollution
+                    </mat-checkbox>
+
+                    <mat-checkbox
+                    [color]="'accent'"
+                    formControlName="waterPollution"
+                    >
+                        Lack of clean drinking water
+                    </mat-checkbox>
+
+                    <mat-checkbox
+                    [color]="'accent'"
+                    formControlName="toxins"
+                    >
+                        Exposure to toxins (Food contaminated with pesticides)
+                    </mat-checkbox>
+
+                </div>
+            </div>
+        </mat-grid-tile>
+
+        <mat-grid-tile>
+            <div class="w-9/10" formGroupName="question5">
+                <label>5. Do you face mental health issues or constant stress/anxiety due to the following? </label>
+                <br>
+                <div role="checkbox" class="flex justify-around mt-4">
+                    <mat-checkbox
+                    [color]="'accent'"
+                    formControlName="trauma"
+                    >
+                        Historical Trauma
+                    </mat-checkbox>
+
+                    <mat-checkbox
+                    [color]="'accent'"
+                    formControlName="finances"
+                    >
+                        Financial Issues
+                    </mat-checkbox>
+
+                    <mat-checkbox
+                    [color]="'accent'"
+                    formControlName="other"
+                    >
+                        Other Reasons
+                    </mat-checkbox>
+
+                </div>
             </div>
         </mat-grid-tile>
 

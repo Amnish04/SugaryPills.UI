@@ -7,9 +7,9 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./lifestyle-survey-form.component.css']
 })
 export class LifestyleSurveyFormComponent {
-    identityForm: FormGroup;
-    formBreakpoint = 2;
-    rowHeight = '5:1';
+    lifestyleForm: FormGroup;
+    formBreakpoint = 1;
+    rowHeight = '7:1';
     
     constructor(
         private fb: FormBuilder
@@ -20,8 +20,29 @@ export class LifestyleSurveyFormComponent {
     }
 
     initForm() {
-        this.identityForm = this.fb.group({
-            age: ['', [Validators.required, Validators.min(0), Validators.max(150)]], 
+        this.lifestyleForm = this.fb.group({
+            // Devil Fruits
+            question1: this.fb.group({
+                bread: [null],
+                sugar: [null],
+                salt: [null],
+                flour: [null],
+                // none: [null],
+            }),
+            question2: ['', [Validators.required]],
+            question3: ['', [Validators.required]],
+            question4: this.fb.group({
+                airPollution: [null],
+                waterPollution: [null],
+                toxins: [null],
+            }),
+            question5: this.fb.group({
+                trauma: [null],
+                finances: [null],
+                other: [null],
+            }),
+
+
             gender: ['', [Validators.required]],
             height: ['', [Validators.required, Validators.min(0), Validators.max(110)]],
             weight: ['', [Validators.required, Validators.min(0), Validators.max(350)]],
@@ -32,12 +53,13 @@ export class LifestyleSurveyFormComponent {
     }
 
     logValues() {
-        console.log(this.identityForm.value);
+        console.log(this.lifestyleForm.value);
+        console.log(this.lifestyleForm.valid);
     }
 
       
     onResize(event: any) {
-        this.formBreakpoint = (event.target.innerWidth <= 600) ? 1 : 2;
+        this.formBreakpoint = (event.target.innerWidth <= 600) ? 1 : 1;
         this.rowHeight = (event.target.innerWidth <= 600) ? '5:2' : '5:1';
     }
 }
