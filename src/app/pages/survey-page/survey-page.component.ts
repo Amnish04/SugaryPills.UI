@@ -1,5 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, ViewChild } from '@angular/core';
 import { SurveyPage } from './survey-utils/enums';
+import { IdentificationSurveyFormComponent } from 'src/app/components/survey/identification-survey-form/identification-survey-form.component';
+import { LifestyleSurveyFormComponent } from 'src/app/components/survey/lifestyle-survey-form/lifestyle-survey-form.component';
+import { SymptomsSurveyFormComponent } from 'src/app/components/survey/symptoms-survey-form/symptoms-survey-form.component';
 
 @Component({
   selector: 'app-survey-page',
@@ -8,6 +11,11 @@ import { SurveyPage } from './survey-utils/enums';
 })
 export class SurveyPageComponent {
     pageNumber = SurveyPage.Identification;
+
+    // Form Components
+    @ViewChild('idForm') idForm: IdentificationSurveyFormComponent;
+    @ViewChild('lifestyleForm') lifestyleForm: LifestyleSurveyFormComponent;
+    @ViewChild('symptomsForm') symptomsForm: SymptomsSurveyFormComponent;
 
     //#region General Getters
     get pageTitle() {
@@ -55,5 +63,23 @@ export class SurveyPageComponent {
         return this.pageNumber === SurveyPage.Symptoms;
     }
 
+    get saveDisabled() {
+        return !this.idForm?.isValid() || !this.lifestyleForm?.isValid() || !this.symptomsForm?.isValid();
+    }
+
     //#endregion
+
+    onSaveClick() {
+        const idFormValue = this.idForm.identityForm?.value;
+        const lifestyleFormValue = this.lifestyleForm.lifestyleForm?.value;
+        const symptomsFormValue = this.symptomsForm.symptomsForm?.value;
+
+        const payload = {
+            identification: idFormValue,
+            lifestyle: lifestyleFormValue,
+            symptoms: symptomsFormValue
+        }
+
+        console.log(payload);
+    }
 }

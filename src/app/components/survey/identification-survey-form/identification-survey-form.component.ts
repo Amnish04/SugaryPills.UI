@@ -45,4 +45,8 @@ export class IdentificationSurveyFormComponent implements OnInit {
         if (evt.value === 'Male')
         this.identityForm.get('isPregnant')?.setValue(false);
     }
+
+    isValid() {
+        return this.identityForm?.valid;
+    }
 }

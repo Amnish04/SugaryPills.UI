@@ -54,6 +54,10 @@ export class LifestyleSurveyFormComponent {
         return payload;
     }
 
+    getFormattedPayload() {
+        return this.formatFormToPayload(this.lifestyleForm.value);
+    }
+
     logValues() {
         console.log(this.formatFormToPayload(this.lifestyleForm.value));
         console.log(this.lifestyleForm.valid);
@@ -63,5 +67,9 @@ export class LifestyleSurveyFormComponent {
     onResize(event: any) {
         this.formBreakpoint = (event.target.innerWidth <= 600) ? 1 : 1;
         this.rowHeight = (event.target.innerWidth <= 600) ? '5:2' : '5:1';
+    }
+
+    isValid() {
+        return this.lifestyleForm?.valid;
     }
 }

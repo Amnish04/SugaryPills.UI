@@ -19,15 +19,15 @@
     <!-- Survey Form -->
     <div class="survey-form-wrapper border mb-5">
         <div [ngClass]="{'throw-outta-page': pageNumber !== 0 }">
-            <app-identification-survey-form></app-identification-survey-form>
+            <app-identification-survey-form #idForm></app-identification-survey-form>
         </div>
 
         <div [ngClass]="{'throw-outta-page': pageNumber !== 1 }">
-            <app-lifestyle-survey-form></app-lifestyle-survey-form>
+            <app-lifestyle-survey-form #lifestyleForm></app-lifestyle-survey-form>
         </div>
         
         <div [ngClass]="{'throw-outta-page': pageNumber !== 2 }">
-            <app-symptoms-survey-form></app-symptoms-survey-form>
+            <app-symptoms-survey-form #symptomsForm></app-symptoms-survey-form>
         </div>
     </div>
 
@@ -35,7 +35,7 @@
     <div class="flex justify-between mb-10">
         <button [disabled]="prevDisabled" (click)="previousClicked()" mat-raised-button color="accent">Previous Page</button>
         <button [disabled]="nextDisabled" (click)="nextClicked()" *ngIf="!showSubmit" mat-raised-button color="accent">Next Page</button>
-        <button *ngIf="showSubmit" mat-raised-button color="accent">Finish Survey</button>
+        <button *ngIf="showSubmit" [disabled]="saveDisabled" (click)="onSaveClick()" mat-raised-button color="accent">Finish Survey</button>
     </div>
     
 </section>
