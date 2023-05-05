@@ -3,6 +3,8 @@ import { SurveyPage } from './survey-utils/enums';
 import { IdentificationSurveyFormComponent } from 'src/app/components/survey/identification-survey-form/identification-survey-form.component';
 import { LifestyleSurveyFormComponent } from 'src/app/components/survey/lifestyle-survey-form/lifestyle-survey-form.component';
 import { SymptomsSurveyFormComponent } from 'src/app/components/survey/symptoms-survey-form/symptoms-survey-form.component';
+import { SurveyService } from 'src/app/services/survey/survey.service';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-survey-page',
@@ -11,11 +13,18 @@ import { SymptomsSurveyFormComponent } from 'src/app/components/survey/symptoms-
 })
 export class SurveyPageComponent {
     pageNumber = SurveyPage.Identification;
+    submitClicked = false;
 
     // Form Components
     @ViewChild('idForm') idForm: IdentificationSurveyFormComponent;
     @ViewChild('lifestyleForm') lifestyleForm: LifestyleSurveyFormComponent;
     @ViewChild('symptomsForm') symptomsForm: SymptomsSurveyFormComponent;
+
+
+    constructor(
+        private surveyService: SurveyService,
+        private snackBar: MatSnackBar
+    ) { }
 
     //#region General Getters
     get pageTitle() {
@@ -64,12 +73,14 @@ export class SurveyPageComponent {
     }
 
     get saveDisabled() {
-        return !this.idForm?.isValid() || !this.lifestyleForm?.isValid() || !this.symptomsForm?.isValid();
+        return (!this.idForm?.isValid() || !this.lifestyleForm?.isValid() || !this.symptomsForm?.isValid()) || this.submitClicked;
     }
 
     //#endregion
 
     onSaveClick() {
+        this.submitClicked = true;
+
         const idFormValue = this.idForm.identityForm?.value;
         const lifestyleFormValue = this.lifestyleForm.lifestyleForm?.value;
         const symptomsFormValue = this.symptomsForm.symptomsForm?.value;
@@ -80,6 +91,16 @@ export class SurveyPageComponent {
             symptoms: symptomsFormValue
         }
 
-        console.log(payload);
+        this.surveyService.addEntry(payload)
+        .subscribe(res => {
+            console.log(res);
+            this.snackBar.open('Successfull saved entry!', 'Done');
+            this.submitClicked = false;
+        },
+        err => {
+            console.error(err);
+            this.submitClicked = false;
+            this.snackBar.open('Error: ' + err.message, 'Oops');
+        });
     }
 }
