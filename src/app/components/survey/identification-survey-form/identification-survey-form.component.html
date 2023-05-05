@@ -1,52 +1,121 @@
-<form [formGroup]="identityForm" class="w-full h-full border overflow-x-hidden overflow-y-auto" style="height: 500px;">
-    <mat-grid-list cols="2" rowHeight="5:1">
+<form autocomplete="off" [formGroup]="identityForm" class="w-full h-full border overflow-x-hidden overflow-y-auto" style="height: 500px;">
+    <mat-grid-list [cols]="formBreakpoint" [rowHeight]="rowHeight" (window:resize)="onResize($event)">
+
+        <!-- Age -->
         <mat-grid-tile>
-            <!-- First Name -->
             <mat-form-field class="w-3/5">
-                <mat-label>First Name</mat-label>
-                <input type="text" matInput placeholder="First Name" required="true"
-                formControlName="firstName">
+                <mat-label>Age</mat-label>
+                <input type="number" matInput placeholder="First Name"
+                formControlName="age">
                 
                 <mat-error>
-                    Field is required
+                    Please enter a valid value
+                </mat-error>
+            </mat-form-field>
+        </mat-grid-tile>
+
+        <!-- Gender -->
+        <mat-grid-tile>
+            <div class="w-3/5">
+                <label id="gender-radio-group-label">Gender</label>
+                    <br>
+                    <mat-radio-group formControlName="gender" [color]="'accent'"
+                    aria-labelledby="status-radio-group-label">
+                        <mat-radio-button  class="m-2" [value]="'Male'">
+                            Male
+                        </mat-radio-button>
+                        <mat-radio-button class="m-2" [value]="'Female'">
+                            Female
+                        </mat-radio-button>
+
+                        <mat-error *ngIf="identityForm.get('gender')?.touched && !identityForm.get('gender')?.valid">
+                            Please select a valid value
+                        </mat-error>
+                    </mat-radio-group>
+            </div>
+        </mat-grid-tile>
+
+        <mat-grid-tile>
+            <mat-form-field class="w-3/5">
+                <mat-label>Height (in inches)</mat-label>
+                <input type="number" matInput placeholder="Height (in inches)"
+                formControlName="height">
+                
+                <mat-error>
+                    Please enter a valid value
                 </mat-error>
             </mat-form-field>
         </mat-grid-tile>
 
         <mat-grid-tile>
             <mat-form-field class="w-3/5">
-                <mat-label>Last Name</mat-label>
-                <input type="text" matInput placeholder="Last Name" required="true"
-                formControlName="lastName">
+                <mat-label>Weight (in pounds)</mat-label>
+                <input type="number" matInput placeholder="Weight (in pounds)"
+                formControlName="weight">
                 
                 <mat-error>
-                    Field is required
+                    Please enter a valid value
                 </mat-error>
             </mat-form-field>
         </mat-grid-tile>
 
         <mat-grid-tile>
-
+            <mat-form-field class="w-3/5">
+                <mat-label>Email</mat-label>
+                <input type="email" matInput placeholder="Email here"
+                formControlName="email">
+                
+                <mat-error>
+                    Please enter a valid value
+                </mat-error>
+            </mat-form-field>
         </mat-grid-tile>
 
         <mat-grid-tile>
+            <div class="w-3/5">
+                <label id="familyHasDiabetes-radio-group-label">Do you have any family members with diabetes?</label>
+                    <br>
+                    <mat-radio-group formControlName="familyHasDiabetes" [color]="'accent'"
+                    aria-labelledby="status-radio-group-label">
+                        <mat-radio-button  class="m-2" [value]="true">
+                            Yes
+                        </mat-radio-button>
+                        <mat-radio-button class="m-2" [value]="false">
+                            No
+                        </mat-radio-button>
 
+                        <mat-error *ngIf="identityForm.get('familyHasDiabetes')?.touched && !identityForm.get('familyHasDiabetes')?.valid">
+                            Please select a valid value
+                        </mat-error>
+                    </mat-radio-group>
+            </div>
         </mat-grid-tile>
 
         <mat-grid-tile>
+            <div class="w-3/5">
+                <label id="isPregnant-radio-group-label">Are you currently expecting a child?</label>
+                    <br>
+                    <mat-radio-group formControlName="isPregnant" [color]="'accent'"
+                    aria-labelledby="status-radio-group-label">
+                        <mat-radio-button  class="m-2" [value]="true">
+                            Yes
+                        </mat-radio-button>
+                        <mat-radio-button class="m-2" [value]="false">
+                            No
+                        </mat-radio-button>
 
+                        <mat-error *ngIf="identityForm.get('isPregnant')?.touched && !identityForm.get('isPregnant')?.valid">
+                            Please select a valid value
+                        </mat-error>
+                    </mat-radio-group>
+            </div>
         </mat-grid-tile>
 
-        <mat-grid-tile>
-            
-        </mat-grid-tile>
+        <!-- <mat-grid-tile>
+            <button mat-flat-button color="accent" (click)="logValues()">
+                Log Form
+            </button>
+        </mat-grid-tile> -->
 
-        <mat-grid-tile>
-
-        </mat-grid-tile>
-
-        <mat-grid-tile>
-
-        </mat-grid-tile>
     </mat-grid-list>      
 </form>

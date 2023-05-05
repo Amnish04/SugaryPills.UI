@@ -8,6 +8,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class IdentificationSurveyFormComponent implements OnInit {
     identityForm: FormGroup;
+    formBreakpoint = 2;
+    rowHeight = '5:1';
     
     constructor(
         private fb: FormBuilder
@@ -19,8 +21,23 @@ export class IdentificationSurveyFormComponent implements OnInit {
 
     initForm() {
         this.identityForm = this.fb.group({
-            firstName: ['', Validators.required], 
-            lastName: ['', Validators.required], 
+            age: ['', [Validators.required, Validators.min(0), Validators.max(150)]], 
+            gender: ['', [Validators.required]],
+            height: ['', [Validators.required, Validators.min(0), Validators.max(110)]],
+            weight: ['', [Validators.required, Validators.min(0), Validators.max(350)]],
+            email: ['', [Validators.required, Validators.email]],
+            familyHasDiabetes: ['', [Validators.required]],
+            isPregnant: ['', [Validators.required]],
         });
+    }
+
+    logValues() {
+        console.log(this.identityForm.value);
+    }
+
+      
+    onResize(event: any) {
+        this.formBreakpoint = (event.target.innerWidth <= 600) ? 1 : 2;
+        this.rowHeight = (event.target.innerWidth <= 600) ? '5:2' : '5:1';
     }
 }
