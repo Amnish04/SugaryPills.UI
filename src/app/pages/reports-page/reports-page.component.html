@@ -1,3 +1,11 @@
 <section class="container-80 mx-auto">
     <p>reports-page works!</p>
+    <canvas baseChart
+    [type]="'pie'"
+    [datasets]="pieChartDatasets"
+    [labels]="pieChartLabels"
+    [options]="pieChartOptions"
+    [plugins]="pieChartPlugins"
+    [legend]="pieChartLegend">
+    </canvas>
 </section>

@@ -29,6 +29,7 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
 import { DoctorPageComponent } from './pages/info-pages/doctor-page/doctor-page.component';
 import { HttpClientModule } from '@angular/common/http';
 import { RiskPageComponent } from './pages/risk-page/risk-page.component';
+import { NgChartsModule } from 'ng2-charts';
 
 @NgModule({
   declarations: [
@@ -63,7 +64,8 @@ import { RiskPageComponent } from './pages/risk-page/risk-page.component';
     MatInputModule,
     MatRadioModule,
     MatCheckboxModule,
-    HttpClientModule
+    HttpClientModule,
+    NgChartsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
