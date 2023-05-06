@@ -57,9 +57,14 @@
                 </mat-error>
             </mat-form-field>
 
+            <button (click)="resetFilters()" [disabled]="generating" mat-raised-button color="primary">
+                Reset Filters
+                <mat-icon>loop</mat-icon>
+            </button>
+
             <button (click)="generateReport()" [disabled]="generating" mat-raised-button color="accent">
                 Generate Report
-                <mat-icon [ngClass]="{'spinning': generating}">loop</mat-icon>
+                <mat-icon [ngClass]="{'spinning': generating}">settings</mat-icon>
             </button>
         
             <mat-form-field color="accent">
@@ -95,10 +100,17 @@
 </div>
 
 <!-- Symtoms proportion bar graph -->
-<div>
+<div class="mb-20">
     <h2 class="text-2xl">Population facing symptoms</h2>
 
     <div class="flex justify-center my-5">
-        
+        <canvas baseChart
+        [data]="barChartData"
+        [options]="barChartOptions"
+        [plugins]="barChartPlugins"
+        [legend]="barChartLegend"
+        [type]="'bar'">
+        </canvas>
+
     </div>
 </div>
