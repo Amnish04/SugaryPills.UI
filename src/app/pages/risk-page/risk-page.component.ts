@@ -18,10 +18,10 @@ export class RiskPageComponent implements OnInit {
     ngOnInit(): void {
         this.riskPoints = (this.activatedRoute.snapshot.queryParams as any).riskPoints ?? 'Not calculated yet';
         this.riskStatus = this.capitalize((this.activatedRoute.snapshot.queryParams as any).riskStatus) ?? 'Nothing to show yet!';
-        this.has3Symptoms = (this.activatedRoute.snapshot.queryParams as any).has3Symptoms ?? "Unknown";
+        this.has3Symptoms = (this.activatedRoute.snapshot.queryParams as any).has3Symptoms ?? false;
     }
 
     capitalize(val: string) {
-        return val[0].toUpperCase() + val.slice(1);
+        return val ? val[0].toUpperCase() + val.slice(1) : null;
     }
 }
