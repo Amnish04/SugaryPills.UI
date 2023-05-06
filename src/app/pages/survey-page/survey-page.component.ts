@@ -8,9 +8,9 @@ import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-survey-page',
-  templateUrl: './survey-page.component.html',
-  styleUrls: ['./survey-page.component.css']
+    selector: 'app-survey-page',
+    templateUrl: './survey-page.component.html',
+    styleUrls: ['./survey-page.component.css']
 })
 export class SurveyPageComponent {
     pageNumber = SurveyPage.Identification;
@@ -36,7 +36,7 @@ export class SurveyPageComponent {
     get surveyTitle() {
         let title = '';
 
-        switch(this.pageNumber) {
+        switch (this.pageNumber) {
             case SurveyPage.Identification:
                 title = 'Personal Questions';
                 break;
@@ -94,21 +94,22 @@ export class SurveyPageComponent {
         }
 
         this.surveyService.addEntry(payload)
-        .subscribe((res: any) => {
-            console.log(res);
-            this.snackBar.open('Successfull saved entry!', 'Done');
-            this.router.navigate(['risk'], {
-                queryParams: {
-                    riskPoints: res.surveyResult.totalPoint,
-                    riskStatus: res.surveyResult.risk
-                }
-            });
-            this.submitClicked = false;
-        },
-        err => {
-            console.error(err);
-            this.submitClicked = false;
-            this.snackBar.open('Error: ' + err.message, 'Oops');
-        });
+            .subscribe((res: any) => {
+                console.log(res);
+                this.snackBar.open('Successfull saved entry!', 'Done');
+                this.router.navigate(['risk'], {
+                    queryParams: {
+                        riskPoints: res.surveyResult.totalPoint,
+                        riskStatus: res.surveyResult.risk,
+                        has3Symptoms: res.surveyResult.hasMoreThan3Symptoms,
+                    }
+                });
+                this.submitClicked = false;
+            },
+                err => {
+                    console.error(err);
+                    this.submitClicked = false;
+                    this.snackBar.open('Error: ' + err.message, 'Oops');
+                });
     }
 }
