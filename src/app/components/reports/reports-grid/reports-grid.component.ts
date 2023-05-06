@@ -101,7 +101,7 @@ export class ReportsGridComponent implements OnInit {
         }
 
         )
-        console.log(this.data);
+        // console.log(this.data);
 
       },
         err => {

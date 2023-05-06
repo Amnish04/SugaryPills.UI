@@ -95,7 +95,7 @@ export class SurveyPageComponent {
 
         this.surveyService.addEntry(payload)
         .subscribe((res: any) => {
-            console.log(res);
+            // console.log(res);
             this.snackBar.open('Successfull saved entry!', 'Done');
             this.router.navigate(['risk'], {
                 queryParams: {
