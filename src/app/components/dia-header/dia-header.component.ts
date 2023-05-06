@@ -41,6 +41,10 @@ export class DiaHeaderComponent implements OnInit {
         return this.router.url === '/survey';
     }
 
+    get isRisk() {
+        return this.router.url === '/risk';
+    }
+
     openAuthForm() {
         const dialogRef = this.dialog.open(LoginFormComponent, {
             // data: {name: this.name, animal: this.animal},

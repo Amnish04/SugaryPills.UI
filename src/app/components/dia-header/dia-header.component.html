@@ -23,7 +23,7 @@
 
     <!-- Right Part -->
     <div >
-        <button *ngIf="!isHome && !isSurvey" [routerLink]="['survey']" mat-raised-button color="accent" style="border-radius: 25px">
+        <button *ngIf="!isHome && !isSurvey && !isRisk" [routerLink]="['survey']" mat-raised-button color="accent" style="border-radius: 25px">
             <mat-icon>perm_device_information</mat-icon>
             Take Survey
         </button>
@@ -32,7 +32,7 @@
             <mat-icon>login</mat-icon>
             Admin Portal
         </button>
-        <button *ngIf="isSurvey"
+        <button *ngIf="isSurvey || isRisk"
         [routerLink]="['home']" matTooltip="Go to home page?" mat-raised-button color="accent" style="border-radius: 25px">
             <mat-icon>home</mat-icon>
             Exit
