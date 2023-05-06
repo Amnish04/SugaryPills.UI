@@ -95,10 +95,17 @@
 </div>
 
 <!-- Symtoms proportion bar graph -->
-<div>
+<div class="mb-20">
     <h2 class="text-2xl">Population facing symptoms</h2>
 
     <div class="flex justify-center my-5">
-        
+        <canvas baseChart
+        [data]="barChartData"
+        [options]="barChartOptions"
+        [plugins]="barChartPlugins"
+        [legend]="barChartLegend"
+        [type]="'bar'">
+        </canvas>
+
     </div>
 </div>
