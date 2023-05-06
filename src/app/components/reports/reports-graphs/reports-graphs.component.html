@@ -1,8 +1,104 @@
-<canvas baseChart
-    [type]="'pie'"
-    [datasets]="pieChartDatasets"
-    [labels]="pieChartLabels"
-    [options]="pieChartOptions"
-    [plugins]="pieChartPlugins"
-    [legend]="pieChartLegend">
-</canvas>
+<!-- Reports Filters -->
+<div class="mt-2">
+    <h2 class="text-2xl">Lifestyle Filters</h2>
+    <form autocomplete="off" [formGroup]="filterForm">
+        <div class="flex justify-around">
+            <mat-form-field color="accent">
+                <mat-label>Staple Diet</mat-label>
+                <mat-select formControlName="question1" [multiple]="true" >
+                    <mat-option *ngFor="let option of stapleDietOptions" [value]="option.value">
+                        {{option.label}}
+                    </mat-option>
+                </mat-select>
+        
+                <mat-error>
+                    
+                </mat-error>
+            </mat-form-field>
+        
+            <mat-form-field color="accent">
+                <mat-label>Junk Food Frequency</mat-label>
+                <mat-select formControlName="question2" >
+                    <mat-option *ngFor="let option of junkFoodOptions" [value]="option.value">
+                        {{option.label}}
+                    </mat-option>
+                </mat-select>
+        
+                <mat-error>
+                    
+                </mat-error>
+            </mat-form-field>
+        
+            <mat-form-field color="accent">
+                <mat-label>Medical Checkup Frequency</mat-label>
+                <mat-select formControlName="question3" >
+                    <mat-option *ngFor="let option of medicalCheckupOptions" [value]="option.value">
+                        {{option.label}}
+                    </mat-option>
+                </mat-select>
+        
+                <mat-error>
+                    
+                </mat-error>
+            </mat-form-field>
+        </div>
+
+        <div class="flex justify-around">
+            <mat-form-field color="accent">
+                <mat-label>Living Environment</mat-label>
+                <mat-select formControlName="question4" [multiple]="true" >
+                    <mat-option *ngFor="let option of environmentOptions" [value]="option.value">
+                        {{option.label}}
+                    </mat-option>
+                </mat-select>
+        
+                <mat-error>
+                    
+                </mat-error>
+            </mat-form-field>
+
+            <button (click)="generateReport()" [disabled]="generating" mat-raised-button color="accent">
+                Generate Report
+                <mat-icon [ngClass]="{'spinning': generating}">loop</mat-icon>
+            </button>
+        
+            <mat-form-field color="accent">
+                <mat-label>Stress Reasons</mat-label>
+                <mat-select formControlName="question5" [multiple]="true" >
+                    <mat-option *ngFor="let option of stressOptions" [value]="option.value">
+                        {{option.label}}
+                    </mat-option>
+                </mat-select>
+        
+                <mat-error>
+                    
+                </mat-error>
+            </mat-form-field> 
+        </div>
+    </form>
+</div>
+
+<!-- Matched Lifestyle PieChart -->
+<div>
+    <h2 class="text-2xl">Percentage with Queried Lifestyle</h2>
+
+    <div class="flex justify-center my-5">
+        <canvas baseChart
+            [type]="'pie'"
+            [datasets]="pieChartDatasets"
+            [labels]="pieChartLabels"
+            [options]="pieChartOptions"
+            [plugins]="pieChartPlugins"
+            [legend]="pieChartLegend">
+        </canvas>
+    </div>
+</div>
+
+<!-- Symtoms proportion bar graph -->
+<div>
+    <h2 class="text-2xl">Population facing symptoms</h2>
+
+    <div class="flex justify-center my-5">
+        
+    </div>
+</div>
