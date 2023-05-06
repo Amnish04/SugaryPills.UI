@@ -17,4 +17,8 @@ export class SurveyService {
     addEntry(body: any) {
         return this.http.post(this.addEntryUrl, body);
     }
+
+    getListOfEntry() {
+        return this.http.get(this.addEntryUrl);
+    }
 }

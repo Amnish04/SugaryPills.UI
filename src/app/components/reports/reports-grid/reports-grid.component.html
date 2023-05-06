@@ -1,1 +1,250 @@
-<p>reports-grid works!</p>
+<mat-form-field appearance="fill" class="right">
+  <mat-label>List type</mat-label>
+  <mat-select [(value)]="listType">
+    <mat-option value="identification">Identification</mat-option>
+    <mat-option value="symptom">Symptom</mat-option>
+    <mat-option value="lifestyle">Lifestyle</mat-option>
+  </mat-select>
+</mat-form-field>
+
+<table
+  *ngIf="listType == 'identification'"
+  mat-table
+  [dataSource]="data"
+  class="mat-elevation-z8"
+>
+  <!--- Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition" -->
+
+  <!-- Position Column -->
+  <ng-container matColumnDef="position">
+    <th mat-header-cell *matHeaderCellDef>No.</th>
+    <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+  </ng-container>
+
+  <!-- Name Column -->
+  <ng-container matColumnDef="gender">
+    <th mat-header-cell *matHeaderCellDef>Gender</th>
+    <td mat-cell *matCellDef="let element">
+      {{ element.formattedIdentification.gender }}
+    </td>
+  </ng-container>
+
+  <!-- Weight Column -->
+  <ng-container matColumnDef="age">
+    <th mat-header-cell *matHeaderCellDef>Age</th>
+    <td mat-cell *matCellDef="let element">
+      {{ element.formattedIdentification.age }}
+    </td>
+  </ng-container>
+
+  <!-- Weight Column -->
+  <ng-container matColumnDef="height">
+    <th mat-header-cell *matHeaderCellDef>Height</th>
+    <td mat-cell *matCellDef="let element">
+      {{ element.formattedIdentification.height }}
+    </td>
+  </ng-container>
+
+  <!-- Weight Column -->
+  <ng-container matColumnDef="weight">
+    <th mat-header-cell *matHeaderCellDef>Weight</th>
+    <td mat-cell *matCellDef="let element">
+      {{ element.formattedIdentification.weight }}
+    </td>
+  </ng-container>
+
+  <!-- Weight Column -->
+  <ng-container matColumnDef="email">
+    <th mat-header-cell *matHeaderCellDef>Email</th>
+    <td mat-cell *matCellDef="let element">
+      {{ element.formattedIdentification.email }}
+    </td>
+  </ng-container>
+
+  <!-- Weight Column -->
+  <ng-container matColumnDef="familyHasDiabetes">
+    <th mat-header-cell *matHeaderCellDef>Family Has Diabetes</th>
+    <td mat-cell *matCellDef="let element">
+      {{ element.formattedIdentification.familyHasDiabetes }}
+    </td>
+  </ng-container>
+
+  <!-- Weight Column -->
+  <ng-container matColumnDef="isPregnant">
+    <th mat-header-cell *matHeaderCellDef>Is Pregnant</th>
+    <td mat-cell *matCellDef="let element">
+      {{ element.formattedIdentification.isPregnant }}
+    </td>
+  </ng-container>
+
+  <!-- Symbol Column -->
+  <ng-container matColumnDef="symbol">
+    <th mat-header-cell *matHeaderCellDef>Symbol</th>
+    <td mat-cell *matCellDef="let element">{{ element.symbol }}</td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumnsIdentification"></tr>
+  <tr
+    mat-row
+    *matRowDef="let row; columns: displayedColumnsIdentification"
+  ></tr>
+</table>
+
+<table
+  *ngIf="listType == 'symptom'"
+  mat-table
+  [dataSource]="data"
+  class="mat-elevation-z8"
+>
+  <!--- Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition" -->
+
+  <!-- Position Column -->
+  <ng-container matColumnDef="symptomPosition">
+    <th mat-header-cell *matHeaderCellDef>No.</th>
+    <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+  </ng-container>
+
+  <!-- Urination Column -->
+  <ng-container matColumnDef="urination">
+    <th mat-header-cell *matHeaderCellDef>Urination</th>
+    <td mat-cell *matCellDef="let element">
+      {{ element.formattedSymptoms.urination }}
+    </td>
+  </ng-container>
+
+  <!-- Thirst Column -->
+  <ng-container matColumnDef="thirst">
+    <th mat-header-cell *matHeaderCellDef>Thirst</th>
+    <td mat-cell *matCellDef="let element">
+      {{ element.formattedSymptoms.thirst }}
+    </td>
+  </ng-container>
+
+  <!-- Hunger Column -->
+  <ng-container matColumnDef="hunger">
+    <th mat-header-cell *matHeaderCellDef>Hunger</th>
+    <td mat-cell *matCellDef="let element">
+      {{ element.formattedSymptoms.hunger }}
+    </td>
+  </ng-container>
+
+  <!-- Fatigue Column -->
+  <ng-container matColumnDef="fatigue">
+    <th mat-header-cell *matHeaderCellDef>Fatigue</th>
+    <td mat-cell *matCellDef="let element">
+      {{ element.formattedSymptoms.fatigue }}
+    </td>
+  </ng-container>
+
+  <!-- Blurred Column -->
+  <ng-container matColumnDef="blurred">
+    <th mat-header-cell *matHeaderCellDef>Blurred</th>
+    <td mat-cell *matCellDef="let element">
+      {{ element.formattedSymptoms.blurred }}
+    </td>
+  </ng-container>
+
+  <!-- Slow Healing Column -->
+  <ng-container matColumnDef="slowhealing">
+    <th mat-header-cell *matHeaderCellDef>Slow Healing</th>
+    <td mat-cell *matCellDef="let element">
+      {{ element.formattedSymptoms.slowhealing }}
+    </td>
+  </ng-container>
+
+  <!-- Tingling Column -->
+  <ng-container matColumnDef="tingling">
+    <th mat-header-cell *matHeaderCellDef>Tingling</th>
+    <td mat-cell *matCellDef="let element">
+      {{ element.formattedSymptoms.tingling }}
+    </td>
+  </ng-container>
+
+  <!-- Dry Column -->
+  <ng-container matColumnDef="dry">
+    <th mat-header-cell *matHeaderCellDef>Dry</th>
+    <td mat-cell *matCellDef="let element">
+      {{ element.formattedSymptoms.dry }}
+    </td>
+  </ng-container>
+
+  <!-- Weight Change Column -->
+  <ng-container matColumnDef="weightChange">
+    <th mat-header-cell *matHeaderCellDef>Weight Change</th>
+    <td mat-cell *matCellDef="let element">
+      {{ element.formattedSymptoms.weightChange }}
+    </td>
+  </ng-container>
+
+  <!-- Mood Change Column -->
+  <ng-container matColumnDef="moodChanges">
+    <th mat-header-cell *matHeaderCellDef>Mood Change</th>
+    <td mat-cell *matCellDef="let element">
+      {{ element.formattedSymptoms.moodChanges }}
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumnsSymptom"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumnsSymptom"></tr>
+</table>
+
+<table
+  *ngIf="listType == 'lifestyle'"
+  mat-table
+  [dataSource]="data"
+  class="mat-elevation-z8"
+>
+  <!--- Note that these columns can be defined in any order.
+        The actual rendered columns are set as a property on the row definition" -->
+
+  <!-- Position Column -->
+  <ng-container matColumnDef="lifestylePosition">
+    <th mat-header-cell *matHeaderCellDef>No.</th>
+    <td mat-cell *matCellDef="let element">{{ element.id }}</td>
+  </ng-container>
+
+  <!-- Question 1 Column -->
+  <ng-container matColumnDef="question1">
+    <th mat-header-cell *matHeaderCellDef>Staple Diet</th>
+    <td mat-cell *matCellDef="let element">
+      {{ element.formattedlifeStyle.question1 }}
+    </td>
+  </ng-container>
+
+  <!-- Question 2 Column -->
+  <ng-container matColumnDef="question2">
+    <th mat-header-cell *matHeaderCellDef>Junk Food Frequency</th>
+    <td mat-cell *matCellDef="let element">
+      {{ element.formattedlifeStyle.question2 }}
+    </td>
+  </ng-container>
+
+  <!-- Question 3 Column -->
+  <ng-container matColumnDef="question3">
+    <th mat-header-cell *matHeaderCellDef>Medical Checkup Frequency</th>
+    <td mat-cell *matCellDef="let element">
+      {{ element.formattedlifeStyle.question3 }}
+    </td>
+  </ng-container>
+
+  <!-- Question 4 Column -->
+  <ng-container matColumnDef="question4">
+    <th mat-header-cell *matHeaderCellDef>Living Environment</th>
+    <td mat-cell *matCellDef="let element">
+      {{ element.formattedlifeStyle.question4 }}
+    </td>
+  </ng-container>
+
+  <!-- Question 5 Column -->
+  <ng-container matColumnDef="question5">
+    <th mat-header-cell *matHeaderCellDef>Stress Reasons</th>
+    <td mat-cell *matCellDef="let element">
+      {{ element.formattedlifeStyle.question5 }}
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumnsLifestyle"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumnsLifestyle"></tr>
+</table>
