@@ -1,26 +1,27 @@
 <section class="container-80 mx-auto">
-    <h2 class="text-center text-4xl mt-5">
-        We calculated a rough risk status for you!
-    </h2>
+  <h2 class="text-center text-4xl mt-5">
+    We calculated a rough risk status for you!
+  </h2>
 
-    <div class="flex flex-col justify-center h-96 border mt-4">
-        <dl class="flex flex-col gap-5 items-center justify-center mt-5">
-            <div class="flex gap-3">
-                <dt class="text-3xl">Risk Points</dt>
-                <dd class="text-xl">{{riskPoints}}/16</dd>
-            </div>
-    
-            <div class="flex gap-3">
-                <dt class="text-3xl">Risk Status</dt>
-                <dd class="text-xl font-bold">{{riskStatus}}</dd>
-            </div>
-        </dl>
-    
-        <div class="flex justify-center mt-10">
-            <button [routerLink]="['survey']" mat-raised-button color="accent" style="border-radius: 25px">
-                <mat-icon>perm_device_information</mat-icon>
-                Take Survey
-            </button>
-        </div>
+  <div class="flex flex-col justify-center h-96 border mt-4">
+    <dl class="flex flex-col gap-5 items-center justify-center mt-5">
+      <div class="flex gap-3">
+        <dt class="text-4xl">Risk Points</dt>
+        <dd class="text-3xl">{{ riskPoints }}/16</dd>
+      </div>
+
+      <div class="flex gap-3">
+        <dt class="text-4xl">Risk Status</dt>
+        <dd class="text-3xl font-bold">{{ riskStatus }}</dd>
+      </div>
+    </dl>
+  </div>
+  <div class="flex gap-3 mt-10 justify-center">
+    <div class="rounded-full bg-red-500 w-8">
+      <p class="text-center text-2xl font-bold">&excl;</p>
     </div>
+    <span class="text-2xl">
+      You have more than 3 symptoms. You should consult a doctor
+    </span>
+  </div>
 </section>
