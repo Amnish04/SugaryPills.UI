@@ -57,9 +57,14 @@
                 </mat-error>
             </mat-form-field>
 
+            <button (click)="resetFilters()" [disabled]="generating" mat-raised-button color="primary">
+                Reset Filters
+                <mat-icon>loop</mat-icon>
+            </button>
+
             <button (click)="generateReport()" [disabled]="generating" mat-raised-button color="accent">
                 Generate Report
-                <mat-icon [ngClass]="{'spinning': generating}">loop</mat-icon>
+                <mat-icon [ngClass]="{'spinning': generating}">settings</mat-icon>
             </button>
         
             <mat-form-field color="accent">

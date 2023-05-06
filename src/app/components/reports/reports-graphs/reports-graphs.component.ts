@@ -196,4 +196,16 @@ export class ReportsGraphsComponent implements OnInit {
     convertDecimalToPercentage(value: any) {
         return Number(value) * 100;
     }
+
+    resetFilters() {
+        this.filterForm.patchValue({
+            question1: [],
+            question2: null,
+            question3: null,
+            question4: [],
+            question5: [],
+        });
+
+        this.generateReport();
+    }
 }
