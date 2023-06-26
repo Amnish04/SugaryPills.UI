@@ -3,39 +3,50 @@
         <!-- Brand Logo -->
         <li>
             <div class="flex items-center">
-                <a routerLink="/home" aria-label="Click to go to home page"><img matTooltip="DIA" src="../../../assets/images/logo.png" alt="Brand Logo"></a>
+                <a routerLink="/home" class="app-brand" aria-label="Click to go to home page"><img matTooltip="DIA" src="../../../assets/images/logo.png" width="96" alt="Brand Logo"></a>
                 <!-- App Name -->
-                <p class="text-2xl">{{appTitle}}</p>
+                <p class="text-xl md:text-2xl">{{appTitle}}</p>
             </div>
         </li>
 
         <!-- Links -->
-        <li class="text-color-secondary text-lg">
-            <a [routerLink]="['about']">About Diabetes</a>
-        </li>
-        <li class="text-color-secondary text-lg">
-            <a [routerLink]="['doctors']" class="cursor-pointer">Health-care providers</a>
-        </li>
-        <li class="text-color-secondary text-lg">
-            <a [routerLink]="['awareness']">How your data can help</a>
+        <li class="hidden lg:inline">
+            <ul class="flex gap-10">
+                <li class="text-color-secondary text-lg">
+                    <a [routerLink]="['about']">About Diabetes</a>
+                </li>
+                <li class="text-color-secondary text-lg">
+                    <a [routerLink]="['doctors']" class="cursor-pointer">Health-care providers</a>
+                </li>
+                <li class="text-color-secondary text-lg">
+                    <a [routerLink]="['awareness']">How your data can help</a>
+                </li>
+            </ul>
         </li>
     </ul>
 
     <!-- Right Part -->
     <div >
-        <button *ngIf="!isHome && !isSurvey && !isRisk" [routerLink]="['survey']" mat-raised-button color="accent" style="border-radius: 25px">
-            <mat-icon>perm_device_information</mat-icon>
-            Take Survey
-        </button>
-        <button *ngIf="isHome"
-        (click)="onAdminPortalClick()" matTooltip="Only for Health Research admins" mat-raised-button color="accent" style="border-radius: 25px">
-            <mat-icon>login</mat-icon>
-            Admin Portal
-        </button>
-        <button *ngIf="isSurvey || isRisk"
-        [routerLink]="['home']" matTooltip="Go to home page?" mat-raised-button color="accent" style="border-radius: 25px">
-            <mat-icon>home</mat-icon>
-            Exit
-        </button>
+        <div class="hidden md:block">
+            <button *ngIf="!isHome && !isSurvey && !isRisk" [routerLink]="['survey']" mat-raised-button color="accent" class="p-10" style="border-radius: 25px; padding: 1.5em;">
+                <mat-icon>perm_device_information</mat-icon>
+                Take Survey
+            </button>
+            <button *ngIf="isHome"
+            (click)="onAdminPortalClick()" matTooltip="Only for Health Research admins" mat-raised-button color="accent" style="border-radius: 25px; padding: 1.5em;">
+                <mat-icon>login</mat-icon>
+                Admin Portal
+            </button>
+            <button *ngIf="isSurvey || isRisk"
+            [routerLink]="['home']" matTooltip="Go to home page?" mat-raised-button color="accent" style="border-radius: 25px; padding: 1.5em;">
+                <mat-icon>home</mat-icon>
+                Exit
+            </button>
+        </div>
+        <div class="md:hidden">
+            <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+                <mat-icon>menu</mat-icon>
+            </button>
+        </div>
     </div>
 </nav>

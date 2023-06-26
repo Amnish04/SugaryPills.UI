@@ -1,3 +1,9 @@
 .nav-header {
     min-height: 75px;
 }
+
+@media screen and (max-width: 500px) {
+    .app-brand {
+        width: 125px;
+    }    
+}
