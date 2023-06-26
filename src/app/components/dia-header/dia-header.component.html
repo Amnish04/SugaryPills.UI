@@ -1,4 +1,4 @@
-<nav class="px-5 border flex justify-between items-center">
+<nav class="relative px-5 border flex justify-between items-center">
     <ul class="nav-header flex items-center h-full gap-10 flex-wrap">
         <!-- Brand Logo -->
         <li>
@@ -44,9 +44,44 @@
             </button>
         </div>
         <div class="md:hidden">
-            <button mat-icon-button class="example-icon" aria-label="Example icon-button with menu icon">
+            <button mat-icon-button (click)="toggleSideMenu()">
                 <mat-icon>menu</mat-icon>
             </button>
         </div>
     </div>
 </nav>
+
+<div class="responsive-menu" [ngClass]="{'responsive-menu-open': sideMenuOpen, 'responsive-menu-closed': !sideMenuOpen && sideMenuTouched}">
+    <h2 class="text-2xl mb-2 p-3">Pages</h2>
+    <hr>
+
+    <ul>
+        <li>
+            <a class="flex items-center gap-2 p-2 hover:no-underline bg-sky-100 hover:bg-sky-200" [routerLink]="['/']" (click)="toggleSideMenu()">
+                <mat-icon>home</mat-icon>
+                Home
+            </a>
+        </li>
+        <li>
+            <a class="flex items-center gap-2 p-2 hover:no-underline bg-sky-100 hover:bg-sky-200 cursor-pointer" (click)="onAdminPortalClick();toggleSideMenu()">
+                <mat-icon>login</mat-icon>
+                Admin Portal
+            </a>
+        </li>
+
+        <hr>
+
+        <li>
+            <a class="block p-2 hover:no-underline hover:bg-sky-100" [routerLink]="['about']" (click)="toggleSideMenu()">About Diabetes</a>
+        </li>
+        <li>
+            <a class="block p-2 hover:no-underline hover:bg-sky-100" [routerLink]="['doctors']" (click)="toggleSideMenu()">Health-care providers</a>
+        </li>
+        <li>
+            <a class="block p-2 hover:no-underline hover:bg-sky-100" [routerLink]="['awareness']" (click)="toggleSideMenu()">How your data can help</a>
+        </li>
+
+        <hr>
+    </ul>
+
+</div>

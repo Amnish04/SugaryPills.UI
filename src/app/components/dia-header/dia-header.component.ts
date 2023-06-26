@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
 import { MatDialog, MatDialogRef } from '@angular/material/dialog';
 import { LoginFormComponent } from '../auth/login-form/login-form.component';
 import { ActivatedRoute, NavigationEnd, Router } from '@angular/router';
@@ -11,14 +11,17 @@ import { AuthService } from 'src/app/services/authentication/auth.service';
   styleUrls: ['./dia-header.component.css']
 })
 export class DiaHeaderComponent implements OnInit {
-    appTitle = "Diabetes Insight and Awareness"
+    appTitle: string = "Diabetes Insight and Awareness"
+
+    sideMenuTouched = false;
+    sideMenuOpen: boolean = false;
 
     constructor(
         public dialog: MatDialog,
         private router: Router,
         private activatedRoute: ActivatedRoute,
         private snackBar: MatSnackBar,
-        private authService: AuthService
+        private authService: AuthService,
     ) { }
 
     ngOnInit(): void {
@@ -59,4 +62,11 @@ export class DiaHeaderComponent implements OnInit {
             this.openAuthForm();
         }
     }
+
+    toggleSideMenu(open?: boolean) {
+        this.sideMenuTouched = true;
+
+        this.sideMenuOpen = open ?? !this.sideMenuOpen;
+    }
+
 }
