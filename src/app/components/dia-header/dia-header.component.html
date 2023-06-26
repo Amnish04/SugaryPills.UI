@@ -57,13 +57,13 @@
 
     <ul>
         <li>
-            <a class="flex items-center gap-2 p-2 hover:no-underline bg-sky-100 hover:bg-sky-200" [routerLink]="['/']" (click)="toggleSideMenu()">
+            <a class="flex items-center gap-2 p-2 hover:no-underline bg-sky-100 hover:bg-sky-200 focus:bg-sky-200" [routerLink]="['/']" (click)="toggleSideMenu()">
                 <mat-icon>home</mat-icon>
                 Home
             </a>
         </li>
         <li>
-            <a class="flex items-center gap-2 p-2 hover:no-underline bg-sky-100 hover:bg-sky-200 cursor-pointer" (click)="onAdminPortalClick();toggleSideMenu()">
+            <a href="#" class="flex items-center gap-2 p-2 hover:no-underline bg-sky-100 hover:bg-sky-200 cursor-pointer focus:bg-sky-200" (click)="$event.preventDefault(); onAdminPortalClick();toggleSideMenu()">
                 <mat-icon>login</mat-icon>
                 Admin Portal
             </a>
@@ -72,13 +72,13 @@
         <hr>
 
         <li>
-            <a class="block p-2 hover:no-underline hover:bg-sky-100" [routerLink]="['about']" (click)="toggleSideMenu()">About Diabetes</a>
+            <a class="block p-2 hover:no-underline hover:bg-sky-100 focus:bg-sky-100" [routerLink]="['about']" (click)="toggleSideMenu()">About Diabetes</a>
         </li>
         <li>
-            <a class="block p-2 hover:no-underline hover:bg-sky-100" [routerLink]="['doctors']" (click)="toggleSideMenu()">Health-care providers</a>
+            <a class="block p-2 hover:no-underline hover:bg-sky-100 focus:bg-sky-100" [routerLink]="['doctors']" (click)="toggleSideMenu()">Health-care providers</a>
         </li>
         <li>
-            <a class="block p-2 hover:no-underline hover:bg-sky-100" [routerLink]="['awareness']" (click)="toggleSideMenu()">How your data can help</a>
+            <a class="block p-2 hover:no-underline hover:bg-sky-100 focus:bg-sky-100" [routerLink]="['awareness']" (click)="toggleSideMenu()">How your data can help</a>
         </li>
 
         <hr>
