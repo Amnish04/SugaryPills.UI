@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { isMobile } from 'src/app/utilities/helper-functions';
 
 @Component({
   selector: 'app-identification-survey-form',
@@ -8,8 +9,8 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 })
 export class IdentificationSurveyFormComponent implements OnInit {
     identityForm: FormGroup;
-    formBreakpoint = 2;
-    rowHeight = '5:1';
+    formBreakpoint = isMobile() ? 1 : 2;
+    rowHeight = isMobile() ? '5:2' : '5:1';
     
     constructor(
         private fb: FormBuilder

@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Question2OptionsMapping, Question3OptionsMapping } from 'src/app/models/survey.model';
+import { isMobile } from 'src/app/utilities/helper-functions';
 
 @Component({
   selector: 'app-lifestyle-survey-form',
@@ -10,8 +11,10 @@ import { Question2OptionsMapping, Question3OptionsMapping } from 'src/app/models
 export class LifestyleSurveyFormComponent {
     lifestyleForm: FormGroup;
     formBreakpoint = 1;
-    rowHeight = '7:1';
-    
+    rowHeight = isMobile() ? '5:2' : '7:1';
+
+    rowSpan = isMobile() ? 2 : 1;
+
     constructor(
         private fb: FormBuilder
     ) { }

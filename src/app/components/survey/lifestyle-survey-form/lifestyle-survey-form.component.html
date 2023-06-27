@@ -2,11 +2,11 @@
     <mat-grid-list [cols]="formBreakpoint" [rowHeight]="rowHeight" (window:resize)="onResize($event)">
 
         <!-- Devil Foods -->
-        <mat-grid-tile>
-            <div class="w-9/10" formGroupName="question1">
+        <mat-grid-tile [rowspan]="rowSpan">
+            <div class="w-9/10 p-2" formGroupName="question1">
                 <label for="foodCheckbox">1. Please select those out of the following white devils that make up a significant part of your diet. (Select one or more)</label>
                 <br>
-                <div id="foodCheckbox" role="checkbox" class="flex justify-around mt-4">
+                <div id="foodCheckbox" role="checkbox" class="flex justify-start mt-4 flex-wrap">
                     <mat-checkbox
                     [color]="'accent'"
                     formControlName="bread"
@@ -39,8 +39,8 @@
         </mat-grid-tile>
 
         <!-- Junk Food -->
-        <mat-grid-tile>
-            <div class="w-9/10">
+        <mat-grid-tile [rowspan]="rowSpan">
+            <div class="w-9/10 p-2">
                 <label id="diet-checkbox-group-label">2. How often do you have unhealthy/junk food per week?</label>
                     <br>
                 <mat-radio-group formControlName="question2" [color]="'accent'" aria-labelledby="diet-checkbox-group-label">
@@ -61,7 +61,7 @@
             </div>
         </mat-grid-tile>
 
-        <mat-grid-tile>
+        <mat-grid-tile [rowspan]="rowSpan">
             <div class="w-3/5">
                 <label id="diet-checkbox-group-label">3. How often do you go for a general medical checkup?</label>
                     <br>
@@ -83,11 +83,11 @@
             </div>
         </mat-grid-tile>
 
-        <mat-grid-tile>
-            <div class="w-9/10" formGroupName="question4">
+        <mat-grid-tile [rowspan]="rowSpan">
+            <div class="w-9/10 p-2" formGroupName="question4">
                 <label>4. Do you experience any of the following in your living environment?</label>
                 <br>
-                <div role="checkbox" class="flex justify-around mt-4">
+                <div role="checkbox" class="flex flex-wrap justify-start mt-4">
                     <mat-checkbox
                     [color]="'accent'"
                     formControlName="airPollution"
@@ -113,11 +113,11 @@
             </div>
         </mat-grid-tile>
 
-        <mat-grid-tile>
-            <div class="w-9/10" formGroupName="question5">
+        <mat-grid-tile [rowspan]="rowSpan">
+            <div class="w-9/10 p-2" formGroupName="question5">
                 <label>5. Do you face mental health issues or constant stress/anxiety due to the following? </label>
                 <br>
-                <div role="checkbox" class="flex justify-around mt-4">
+                <div role="checkbox" class="flex flex-wrap justify-start mt-4">
                     <mat-checkbox
                     [color]="'accent'"
                     formControlName="trauma"
@@ -143,7 +143,7 @@
             </div>
         </mat-grid-tile>
 
-        <!-- <mat-grid-tile>
+        <!-- <mat-grid-tile [rowspan]="rowSpan">
             <button mat-flat-button color="accent" (click)="logValues()">
                 Log Form
             </button>
