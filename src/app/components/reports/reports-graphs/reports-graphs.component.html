@@ -2,8 +2,8 @@
 <div class="mt-2">
     <h2 class="text-2xl">Lifestyle Filters</h2>
     <form autocomplete="off" [formGroup]="filterForm">
-        <div class="flex justify-around">
-            <mat-form-field color="accent">
+        <div class="flex flex-wrap justify-start md:justify-around">
+            <mat-form-field [ngClass]="{'w-full': isMobile()}" color="accent">
                 <mat-label>Staple Diet</mat-label>
                 <mat-select formControlName="question1" [multiple]="true" >
                     <mat-option *ngFor="let option of stapleDietOptions" [value]="option.value">
@@ -16,7 +16,7 @@
                 </mat-error>
             </mat-form-field>
         
-            <mat-form-field color="accent">
+            <mat-form-field [ngClass]="{'w-full': isMobile()}" color="accent">
                 <mat-label>Junk Food Frequency</mat-label>
                 <mat-select formControlName="question2" >
                     <mat-option *ngFor="let option of junkFoodOptions" [value]="option.value">
@@ -29,7 +29,7 @@
                 </mat-error>
             </mat-form-field>
         
-            <mat-form-field color="accent">
+            <mat-form-field [ngClass]="{'w-full': isMobile()}" color="accent">
                 <mat-label>Medical Checkup Frequency</mat-label>
                 <mat-select formControlName="question3" >
                     <mat-option *ngFor="let option of medicalCheckupOptions" [value]="option.value">
@@ -43,8 +43,8 @@
             </mat-form-field>
         </div>
 
-        <div class="flex justify-around">
-            <mat-form-field color="accent">
+        <div class="flex flex-wrap justify-start md:justify-around">
+            <mat-form-field [ngClass]="{'w-full': isMobile()}" color="accent">
                 <mat-label>Living Environment</mat-label>
                 <mat-select formControlName="question4" [multiple]="true" >
                     <mat-option *ngFor="let option of environmentOptions" [value]="option.value">
@@ -57,17 +57,19 @@
                 </mat-error>
             </mat-form-field>
 
-            <button (click)="resetFilters()" [disabled]="generating" mat-raised-button color="primary">
-                Reset Filters
-                <mat-icon>loop</mat-icon>
-            </button>
-
-            <button (click)="generateReport()" [disabled]="generating" mat-raised-button color="accent">
-                Generate Report
-                <mat-icon [ngClass]="{'spinning': generating}">settings</mat-icon>
-            </button>
+            <div [ngClass]="{'w-full': isMobile()}" class="flex justify-center md:justify-around items-center gap-4 {{isMobile() ? 'order-last' : 'order-none'}} mb-3 text-sm md:text-md">
+                <button (click)="resetFilters()" [disabled]="generating" mat-raised-button color="primary">
+                    Reset Filters
+                    <mat-icon>loop</mat-icon>
+                </button>
+    
+                <button (click)="generateReport()" [disabled]="generating" mat-raised-button color="accent">
+                    Generate Report
+                    <mat-icon [ngClass]="{'spinning': generating}">settings</mat-icon>
+                </button>
+            </div>
         
-            <mat-form-field color="accent">
+            <mat-form-field [ngClass]="{'w-full': isMobile()}" color="accent">
                 <mat-label>Stress Reasons</mat-label>
                 <mat-select formControlName="question5" [multiple]="true" >
                     <mat-option *ngFor="let option of stressOptions" [value]="option.value">

@@ -1,3 +1,4 @@
+import { isMobile } from 'src/app/utilities/helper-functions';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ChartConfiguration, ChartOptions } from 'chart.js';
@@ -13,6 +14,8 @@ export class ReportsGraphsComponent implements OnInit {
     generating = false;
     generatedReports: Report;
     filterForm: FormGroup;
+
+    isMobile = isMobile;
 
     ngOnInit(): void {
         this.initForm();
