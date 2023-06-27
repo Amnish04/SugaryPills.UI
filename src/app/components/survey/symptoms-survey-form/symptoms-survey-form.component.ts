@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { isMobile } from 'src/app/utilities/helper-functions';
 
 @Component({
   selector: 'app-symptoms-survey-form',
@@ -9,7 +10,9 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class SymptomsSurveyFormComponent {
     symptomsForm: FormGroup;
     formBreakpoint = 1;
-    rowHeight = '4:1';
+    rowHeight = isMobile() ? '2:1' : '5:1';
+
+    tileRowSpan = isMobile() ? 4 : 1;
     
     constructor(
         private fb: FormBuilder
@@ -51,8 +54,8 @@ export class SymptomsSurveyFormComponent {
 
       
     onResize(event: any) {
-        this.formBreakpoint = (event.target.innerWidth <= 600) ? 1 : 1;
-        // this.rowHeight = (event.target.innerWidth <= 600) ? '5:2' : '5:1';
+        this.rowHeight = isMobile() ? '2:1' : '5:1';
+        this.tileRowSpan = isMobile() ? 4 : 1;;
     }
 
     isValid() {

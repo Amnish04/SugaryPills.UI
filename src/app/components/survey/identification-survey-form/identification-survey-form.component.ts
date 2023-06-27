@@ -38,8 +38,8 @@ export class IdentificationSurveyFormComponent implements OnInit {
 
       
     onResize(event: any) {
-        this.formBreakpoint = (event.target.innerWidth <= 600) ? 1 : 2;
-        this.rowHeight = (event.target.innerWidth <= 600) ? '5:2' : '5:1';
+        this.formBreakpoint = isMobile() ? 1 : 2;
+        this.rowHeight = isMobile() ? '5:2' : '5:1';
     }
 
     onGenderChange(evt: any) {

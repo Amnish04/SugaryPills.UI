@@ -68,8 +68,8 @@ export class LifestyleSurveyFormComponent {
 
       
     onResize(event: any) {
-        this.formBreakpoint = (event.target.innerWidth <= 600) ? 1 : 1;
-        this.rowHeight = (event.target.innerWidth <= 600) ? '5:2' : '5:1';
+        this.rowSpan = isMobile() ? 2 : 1;
+        this.rowHeight = isMobile() ? '5:2' : '7:1';
     }
 
     isValid() {

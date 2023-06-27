@@ -13,7 +13,7 @@ import { Router } from '@angular/router';
     styleUrls: ['./survey-page.component.css']
 })
 export class SurveyPageComponent {
-    pageNumber = SurveyPage.Identification;
+    pageNumber = SurveyPage.Symptoms;
     submitClicked = false;
 
     // Form Components

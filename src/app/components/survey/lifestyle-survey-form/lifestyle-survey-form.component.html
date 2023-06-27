@@ -6,7 +6,7 @@
             <div class="w-9/10 p-2" formGroupName="question1">
                 <label for="foodCheckbox">1. Please select those out of the following white devils that make up a significant part of your diet. (Select one or more)</label>
                 <br>
-                <div id="foodCheckbox" role="checkbox" class="flex justify-start mt-4 flex-wrap">
+                <div id="foodCheckbox" role="checkbox" class="flex justify-start md:justify-around mt-4 flex-wrap">
                     <mat-checkbox
                     [color]="'accent'"
                     formControlName="bread"
@@ -87,7 +87,7 @@
             <div class="w-9/10 p-2" formGroupName="question4">
                 <label>4. Do you experience any of the following in your living environment?</label>
                 <br>
-                <div role="checkbox" class="flex flex-wrap justify-start mt-4">
+                <div role="checkbox" class="flex flex-wrap justify-start md:justify-around mt-4">
                     <mat-checkbox
                     [color]="'accent'"
                     formControlName="airPollution"
@@ -117,7 +117,7 @@
             <div class="w-9/10 p-2" formGroupName="question5">
                 <label>5. Do you face mental health issues or constant stress/anxiety due to the following? </label>
                 <br>
-                <div role="checkbox" class="flex flex-wrap justify-start mt-4">
+                <div role="checkbox" class="flex flex-wrap justify-start md:justify-around mt-4">
                     <mat-checkbox
                     [color]="'accent'"
                     formControlName="trauma"

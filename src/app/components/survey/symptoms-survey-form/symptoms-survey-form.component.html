@@ -1,94 +1,61 @@
-<form class="text-left" autocomplete="off" [formGroup]="symptomsForm" class="w-full h-full border overflow-x-hidden overflow-y-auto" style="height: 500px;">
+<form class="text-left" autocomplete="off" [formGroup]="symptomsForm"
+    class="w-full h-full border overflow-x-hidden overflow-y-auto" style="height: 500px;">
     <mat-grid-list [cols]="formBreakpoint" [rowHeight]="rowHeight" (window:resize)="onResize($event)">
 
         <!-- Symptoms -->
-        <mat-grid-tile>
-            <div class="w-9/10">
-                <label >Please select any of the following symptoms that you experience in your daily life?</label>
+        <mat-grid-tile [rowspan]="tileRowSpan">
+            <div class="w-9/10 p-2">
+                <label>Please select any of the following symptoms that you experience in your daily life?</label>
                 <br>
-                <div class="flex justify-around mt-4">
-                    <mat-checkbox
-                    [color]="'accent'"
-                    formControlName="urination"
-                    >
+                <div class="flex flex-wrap justify-start sm:justify-around p-4">
+                    <mat-checkbox [color]="'accent'" formControlName="urination">
                         Frequent Urination
                     </mat-checkbox>
 
-                    <mat-checkbox
-                    [color]="'accent'"
-                    formControlName="thirst"
-                    >
+                    <mat-checkbox [color]="'accent'" formControlName="thirst">
                         Excessive Thirst
                     </mat-checkbox>
 
-                    <mat-checkbox
-                    [color]="'accent'"
-                    formControlName="hunger"
-                    >
+                    <mat-checkbox [color]="'accent'" formControlName="hunger">
                         Extreme hunger, even after eating
                     </mat-checkbox>
 
-                    <mat-checkbox
-                    [color]="'accent'"
-                    formControlName="fatigue"
-                    >
+                    <mat-checkbox [color]="'accent'" formControlName="fatigue">
                         Fatigue or Weakness
                     </mat-checkbox>
-                </div>
-                    <br>
-                <div class="flex justify-around mt-4">
-                    <mat-checkbox
-                    [color]="'accent'"
-                    formControlName="blurred"
-                    >
+
+                    <mat-checkbox [color]="'accent'" formControlName="blurred">
                         Blurred vision
                     </mat-checkbox>
 
-                    <mat-checkbox
-                    [color]="'accent'"
-                    formControlName="slowhealing"
-                    >
+                    <mat-checkbox [color]="'accent'" formControlName="slowhealing">
                         Slow-healing, cuts or bruises
                     </mat-checkbox>
 
-                    <mat-checkbox
-                    [color]="'accent'"
-                    formControlName="tingling"
-                    >
+                    <mat-checkbox [color]="'accent'" formControlName="tingling">
                         Tingling, pain or numbness in hands or feet
                     </mat-checkbox>
 
-                    <mat-checkbox
-                    [color]="'accent'"
-                    formControlName="dry"
-                    >
+                    <mat-checkbox [color]="'accent'" formControlName="dry">
                         Dry/Itchy skin
                     </mat-checkbox>
-                </div>
-                    <br>
-                <div class="flex justify-around mt-4">
-                    <mat-checkbox
-                    [color]="'accent'"
-                    formControlName="weightChange"
-                    >
+
+                    <mat-checkbox [color]="'accent'" formControlName="weightChange">
                         Unexplained Weight Loss
                     </mat-checkbox>
-
-                    <mat-checkbox
-                    [color]="'accent'"
-                    formControlName="moodChanges"
-                    >
+    
+                    <mat-checkbox [color]="'accent'" formControlName="moodChanges">
                         Irritability or mood changes
                     </mat-checkbox>
                 </div>
             </div>
         </mat-grid-tile>
 
-        <!-- <mat-grid-tile>
+        <!-- <mat-grid-tile [rowspan]="tileRowSpan">
             <button mat-flat-button color="accent" (click)="logValues()">
                 Log Form
             </button>
         </mat-grid-tile> -->
 
-    </mat-grid-list>      
+    </mat-grid-list>
 </form>
