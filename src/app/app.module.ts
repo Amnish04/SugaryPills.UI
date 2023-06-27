@@ -34,6 +34,7 @@ import { ReportsGridComponent } from './components/reports/reports-grid/reports-
 import { ReportsGraphsComponent } from './components/reports/reports-graphs/reports-graphs.component';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatTableModule } from '@angular/material/table';
+import {MatRippleModule} from '@angular/material/core'; 
 
 @NgModule({
   declarations: [
@@ -73,7 +74,8 @@ import { MatTableModule } from '@angular/material/table';
     HttpClientModule,
     NgChartsModule,
     MatTabsModule,
-    MatTableModule
+    MatTableModule,
+    MatRippleModule
   ],
   providers: [],
   bootstrap: [AppComponent]
