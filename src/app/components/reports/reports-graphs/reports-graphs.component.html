@@ -1,88 +1,91 @@
 <!-- Reports Filters -->
 <div class="mt-2">
-    <h2 class="text-2xl">Lifestyle Filters</h2>
-    <form autocomplete="off" [formGroup]="filterForm">
-        <div class="flex flex-wrap justify-start md:justify-around">
-            <mat-form-field [ngClass]="{'w-full': isMobile()}" color="accent">
-                <mat-label>Staple Diet</mat-label>
-                <mat-select formControlName="question1" [multiple]="true" >
-                    <mat-option *ngFor="let option of stapleDietOptions" [value]="option.value">
-                        {{option.label}}
-                    </mat-option>
-                </mat-select>
-        
-                <mat-error>
-                    
-                </mat-error>
-            </mat-form-field>
-        
-            <mat-form-field [ngClass]="{'w-full': isMobile()}" color="accent">
-                <mat-label>Junk Food Frequency</mat-label>
-                <mat-select formControlName="question2" >
-                    <mat-option *ngFor="let option of junkFoodOptions" [value]="option.value">
-                        {{option.label}}
-                    </mat-option>
-                </mat-select>
-        
-                <mat-error>
-                    
-                </mat-error>
-            </mat-form-field>
-        
-            <mat-form-field [ngClass]="{'w-full': isMobile()}" color="accent">
-                <mat-label>Medical Checkup Frequency</mat-label>
-                <mat-select formControlName="question3" >
-                    <mat-option *ngFor="let option of medicalCheckupOptions" [value]="option.value">
-                        {{option.label}}
-                    </mat-option>
-                </mat-select>
-        
-                <mat-error>
-                    
-                </mat-error>
-            </mat-form-field>
-        </div>
+    <ng-container *ngIf="!isMobile(); else AccordionFilters">
+        <h2 class="text-2xl">Lifestyle Filters</h2>
+        <form autocomplete="off" [formGroup]="filterForm">
+            <div class="flex flex-wrap justify-start md:justify-around">
+                <mat-form-field [ngClass]="{'w-full': isMobile()}" color="accent">
+                    <mat-label>Staple Diet</mat-label>
+                    <mat-select formControlName="question1" [multiple]="true">
+                        <mat-option *ngFor="let option of stapleDietOptions" [value]="option.value">
+                            {{option.label}}
+                        </mat-option>
+                    </mat-select>
 
-        <div class="flex flex-wrap justify-start md:justify-around">
-            <mat-form-field [ngClass]="{'w-full': isMobile()}" color="accent">
-                <mat-label>Living Environment</mat-label>
-                <mat-select formControlName="question4" [multiple]="true" >
-                    <mat-option *ngFor="let option of environmentOptions" [value]="option.value">
-                        {{option.label}}
-                    </mat-option>
-                </mat-select>
-        
-                <mat-error>
-                    
-                </mat-error>
-            </mat-form-field>
+                    <mat-error>
 
-            <div [ngClass]="{'w-full': isMobile()}" class="flex justify-center md:justify-around items-center gap-4 {{isMobile() ? 'order-last' : 'order-none'}} mb-3 text-sm md:text-md">
-                <button (click)="resetFilters()" [disabled]="generating" mat-raised-button color="primary">
-                    Reset Filters
-                    <mat-icon>loop</mat-icon>
-                </button>
-    
-                <button (click)="generateReport()" [disabled]="generating" mat-raised-button color="accent">
-                    Generate Report
-                    <mat-icon [ngClass]="{'spinning': generating}">settings</mat-icon>
-                </button>
+                    </mat-error>
+                </mat-form-field>
+
+                <mat-form-field [ngClass]="{'w-full': isMobile()}" color="accent">
+                    <mat-label>Junk Food Frequency</mat-label>
+                    <mat-select formControlName="question2">
+                        <mat-option *ngFor="let option of junkFoodOptions" [value]="option.value">
+                            {{option.label}}
+                        </mat-option>
+                    </mat-select>
+
+                    <mat-error>
+
+                    </mat-error>
+                </mat-form-field>
+
+                <mat-form-field [ngClass]="{'w-full': isMobile()}" color="accent">
+                    <mat-label>Medical Checkup Frequency</mat-label>
+                    <mat-select formControlName="question3">
+                        <mat-option *ngFor="let option of medicalCheckupOptions" [value]="option.value">
+                            {{option.label}}
+                        </mat-option>
+                    </mat-select>
+
+                    <mat-error>
+
+                    </mat-error>
+                </mat-form-field>
             </div>
-        
-            <mat-form-field [ngClass]="{'w-full': isMobile()}" color="accent">
-                <mat-label>Stress Reasons</mat-label>
-                <mat-select formControlName="question5" [multiple]="true" >
-                    <mat-option *ngFor="let option of stressOptions" [value]="option.value">
-                        {{option.label}}
-                    </mat-option>
-                </mat-select>
-        
-                <mat-error>
-                    
-                </mat-error>
-            </mat-form-field> 
-        </div>
-    </form>
+
+            <div class="flex flex-wrap justify-start md:justify-around">
+                <mat-form-field [ngClass]="{'w-full': isMobile()}" color="accent">
+                    <mat-label>Living Environment</mat-label>
+                    <mat-select formControlName="question4" [multiple]="true">
+                        <mat-option *ngFor="let option of environmentOptions" [value]="option.value">
+                            {{option.label}}
+                        </mat-option>
+                    </mat-select>
+
+                    <mat-error>
+
+                    </mat-error>
+                </mat-form-field>
+
+                <div [ngClass]="{'w-full': isMobile()}"
+                    class="flex justify-center md:justify-around items-center gap-4 {{isMobile() ? 'order-last' : 'order-none'}} mb-3 text-sm md:text-md">
+                    <button (click)="resetFilters()" [disabled]="generating" mat-raised-button color="primary">
+                        Reset Filters
+                        <mat-icon>loop</mat-icon>
+                    </button>
+
+                    <button (click)="generateReport()" [disabled]="generating" mat-raised-button color="accent">
+                        Generate Report
+                        <mat-icon [ngClass]="{'spinning': generating}">settings</mat-icon>
+                    </button>
+                </div>
+
+                <mat-form-field [ngClass]="{'w-full': isMobile()}" color="accent">
+                    <mat-label>Stress Reasons</mat-label>
+                    <mat-select formControlName="question5" [multiple]="true">
+                        <mat-option *ngFor="let option of stressOptions" [value]="option.value">
+                            {{option.label}}
+                        </mat-option>
+                    </mat-select>
+
+                    <mat-error>
+
+                    </mat-error>
+                </mat-form-field>
+            </div>
+        </form>
+    </ng-container>
 </div>
 
 <!-- Matched Lifestyle PieChart -->
@@ -90,13 +93,8 @@
     <h2 class="text-2xl">Percentage with Queried Lifestyle</h2>
 
     <div class="flex justify-center my-5">
-        <canvas baseChart
-            [type]="'pie'"
-            [datasets]="pieChartDatasets"
-            [labels]="pieChartLabels"
-            [options]="pieChartOptions"
-            [plugins]="pieChartPlugins"
-            [legend]="pieChartLegend">
+        <canvas baseChart [type]="'pie'" [datasets]="pieChartDatasets" [labels]="pieChartLabels"
+            [options]="pieChartOptions" [plugins]="pieChartPlugins" [legend]="pieChartLegend">
         </canvas>
     </div>
 </div>
@@ -106,13 +104,107 @@
     <h2 class="text-2xl">Population facing symptoms</h2>
 
     <div class="flex justify-center my-5">
-        <canvas baseChart
-        [data]="barChartData"
-        [options]="barChartOptions"
-        [plugins]="barChartPlugins"
-        [legend]="barChartLegend"
-        [type]="'bar'">
+        <canvas baseChart [data]="barChartData" [options]="barChartOptions" [plugins]="barChartPlugins"
+            [legend]="barChartLegend" [type]="'bar'">
         </canvas>
 
     </div>
 </div>
+
+<ng-template #AccordionFilters>
+    <div class="my-4">
+        <mat-accordion togglePosition="before">
+            <mat-expansion-panel (opened)="panelOpenState = true" (closed)="panelOpenState = false">
+                <mat-expansion-panel-header>
+                    <mat-panel-title class="text-lg">
+                        Lifestyle Filters
+                    </mat-panel-title>
+                </mat-expansion-panel-header>
+
+                <form autocomplete="off" [formGroup]="filterForm">
+                    <div class="flex flex-wrap justify-start md:justify-around">
+                        <mat-form-field [ngClass]="{'w-full': isMobile()}" color="accent">
+                            <mat-label>Staple Diet</mat-label>
+                            <mat-select formControlName="question1" [multiple]="true">
+                                <mat-option *ngFor="let option of stapleDietOptions" [value]="option.value">
+                                    {{option.label}}
+                                </mat-option>
+                            </mat-select>
+
+                            <mat-error>
+
+                            </mat-error>
+                        </mat-form-field>
+
+                        <mat-form-field [ngClass]="{'w-full': isMobile()}" color="accent">
+                            <mat-label>Junk Food Frequency</mat-label>
+                            <mat-select formControlName="question2">
+                                <mat-option *ngFor="let option of junkFoodOptions" [value]="option.value">
+                                    {{option.label}}
+                                </mat-option>
+                            </mat-select>
+
+                            <mat-error>
+
+                            </mat-error>
+                        </mat-form-field>
+
+                        <mat-form-field [ngClass]="{'w-full': isMobile()}" color="accent">
+                            <mat-label>Medical Checkup Frequency</mat-label>
+                            <mat-select formControlName="question3">
+                                <mat-option *ngFor="let option of medicalCheckupOptions" [value]="option.value">
+                                    {{option.label}}
+                                </mat-option>
+                            </mat-select>
+
+                            <mat-error>
+
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+
+                    <div class="flex flex-wrap justify-start md:justify-around">
+                        <mat-form-field [ngClass]="{'w-full': isMobile()}" color="accent">
+                            <mat-label>Living Environment</mat-label>
+                            <mat-select formControlName="question4" [multiple]="true">
+                                <mat-option *ngFor="let option of environmentOptions" [value]="option.value">
+                                    {{option.label}}
+                                </mat-option>
+                            </mat-select>
+
+                            <mat-error>
+
+                            </mat-error>
+                        </mat-form-field>
+
+                        <div [ngClass]="{'w-full': isMobile()}"
+                            class="flex justify-center md:justify-around items-center gap-4 {{isMobile() ? 'order-last' : 'order-none'}} mb-3 text-sm md:text-md">
+                            <button (click)="resetFilters()" [disabled]="generating" mat-raised-button color="primary">
+                                Reset Filters
+                                <mat-icon>loop</mat-icon>
+                            </button>
+
+                            <button (click)="generateReport()" [disabled]="generating" mat-raised-button color="accent">
+                                Generate Report
+                                <mat-icon [ngClass]="{'spinning': generating}">settings</mat-icon>
+                            </button>
+                        </div>
+
+                        <mat-form-field [ngClass]="{'w-full': isMobile()}" color="accent">
+                            <mat-label>Stress Reasons</mat-label>
+                            <mat-select formControlName="question5" [multiple]="true">
+                                <mat-option *ngFor="let option of stressOptions" [value]="option.value">
+                                    {{option.label}}
+                                </mat-option>
+                            </mat-select>
+
+                            <mat-error>
+
+                            </mat-error>
+                        </mat-form-field>
+                    </div>
+                </form>
+            </mat-expansion-panel>
+        </mat-accordion>
+    </div>
+</ng-template>

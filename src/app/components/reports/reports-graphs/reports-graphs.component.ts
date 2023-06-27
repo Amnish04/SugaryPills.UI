@@ -11,6 +11,8 @@ import { ReportsService } from 'src/app/services/reports/reports.service';
     styleUrls: ['./reports-graphs.component.css']
 })
 export class ReportsGraphsComponent implements OnInit {
+    panelOpenState = false;
+
     generating = false;
     generatedReports: Report;
     filterForm: FormGroup;

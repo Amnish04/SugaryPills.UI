@@ -112,3 +112,7 @@ a:hover {
 .mat-form-field-appearance-fill .mat-form-field-flex {
     background-color: white;
 }
+
+span.mat-expansion-indicator.ng-tns-c50-7.ng-trigger.ng-trigger-indicatorRotate.ng-star-inserted::after {
+    border-color: black;
+}
