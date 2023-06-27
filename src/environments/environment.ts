@@ -1,3 +1,3 @@
 export const environment = {
-    surveyApiUrl: 'https://sugarpil.onrender.com/api/'
+    surveyApiUrl: 'https://diabackend5.onrender.com/api/'
 }
