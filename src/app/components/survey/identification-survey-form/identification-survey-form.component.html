@@ -5,7 +5,7 @@
         <mat-grid-tile>
             <mat-form-field class="w-3/5">
                 <mat-label>Age</mat-label>
-                <input type="number" matInput placeholder="Age (in years)"
+                <input type="number" matInput placeholder="Age (in years)" min="0"
                 formControlName="age">
                 
                 <mat-error>
@@ -38,7 +38,7 @@
         <mat-grid-tile>
             <mat-form-field class="w-3/5">
                 <mat-label>Height (in inches)</mat-label>
-                <input type="number" matInput placeholder="Height (in inches)"
+                <input type="number" matInput placeholder="Height (in inches)" min="0"
                 formControlName="height">
                 
                 <mat-error>
@@ -50,7 +50,7 @@
         <mat-grid-tile>
             <mat-form-field class="w-3/5">
                 <mat-label>Weight (in pounds)</mat-label>
-                <input type="number" matInput placeholder="Weight (in pounds)"
+                <input type="number" matInput placeholder="Weight (in pounds)" min="0"
                 formControlName="weight">
                 
                 <mat-error>

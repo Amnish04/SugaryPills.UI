@@ -20,6 +20,8 @@
 
     transform: scaleX(0);
     transform-origin: left;
+
+    box-shadow: 1px 0 1px rgba(0, 0, 0, 0.25);
 }
 
 .responsive-menu-open {
