@@ -135,7 +135,7 @@ export class ReportsGraphsComponent implements OnInit {
     log(evt: any) {
         console.log(evt);
     }
-    
+
     //#region Bar Chart
     public barChartLegend = true;
     public barChartPlugins = [];
@@ -154,17 +154,19 @@ export class ReportsGraphsComponent implements OnInit {
 
         console.log(this.filterForm.value);
         this.reportsService.generateReports(this.filterForm.value)
-            .subscribe(res => {
-                console.log(res);
-                this.generatedReports = res as Report;
-                this.updateCharts();
+            .subscribe({
+                next: res => {
+                    console.log(res);
+                    this.generatedReports = res as Report;
+                    this.updateCharts();
 
-                this.generating = false;
-            },
-            err => {
-                console.error(err);
-                this.generating = false;
-        });
+                    this.generating = false;
+                },
+                error: err => {
+                    console.error(err);
+                    this.generating = false;
+                }
+            });
     }
 
     updateCharts() {
@@ -182,18 +184,20 @@ export class ReportsGraphsComponent implements OnInit {
         this.barChartData = {
             labels: ['Frequent Urination', 'Excessive Thirst', 'Extreme Hunger', 'Fatigue/Weakness', 'Blurred Vision', 'Slow Healing', 'Tingling, Pain or Numbness', 'Dry/Itchy Skin', 'Unexplained Weight Loss', 'Irritability/Mood Changes'],
             datasets: [
-                { data: [
-                    this.generatedReports.urination.percentage, 
-                    this.generatedReports.thirst.percentage,
-                    this.generatedReports.hunger.percentage,
-                    this.generatedReports.fatigue.percentage,
-                    this.generatedReports.blurredVision.percentage,
-                    this.generatedReports.weakHealing.percentage,
-                    this.generatedReports.tingling.percentage,
-                    this.generatedReports.dryIthcySkin.percentage,
-                    this.generatedReports.weightLoss.percentage,
-                    this.generatedReports.moodChanges.percentage,
-                ].map(this.convertDecimalToPercentage), label: 'Percentage Affected' },
+                {
+                    data: [
+                        this.generatedReports.urination.percentage,
+                        this.generatedReports.thirst.percentage,
+                        this.generatedReports.hunger.percentage,
+                        this.generatedReports.fatigue.percentage,
+                        this.generatedReports.blurredVision.percentage,
+                        this.generatedReports.weakHealing.percentage,
+                        this.generatedReports.tingling.percentage,
+                        this.generatedReports.dryIthcySkin.percentage,
+                        this.generatedReports.weightLoss.percentage,
+                        this.generatedReports.moodChanges.percentage,
+                    ].map(this.convertDecimalToPercentage), label: 'Percentage Affected'
+                },
             ]
         };
     }
