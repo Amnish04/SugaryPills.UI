@@ -3,7 +3,7 @@
 
         <!-- Devil Foods -->
         <mat-grid-tile [rowspan]="rowSpan">
-            <div class="w-9/10 p-2" formGroupName="question1">
+            <div class="w-9/10 p-5" formGroupName="question1">
                 <label for="foodCheckbox">1. Please select those out of the following white devils that make up a significant part of your diet. (Select one or more)</label>
                 <br>
                 <div id="foodCheckbox" role="checkbox" class="flex justify-start md:justify-around mt-4 flex-wrap">
@@ -40,7 +40,7 @@
 
         <!-- Junk Food -->
         <mat-grid-tile [rowspan]="rowSpan">
-            <div class="w-9/10 p-2">
+            <div class="w-9/10 p-5">
                 <label id="diet-checkbox-group-label">2. How often do you have unhealthy/junk food per week?</label>
                     <br>
                 <mat-radio-group formControlName="question2" [color]="'accent'" aria-labelledby="diet-checkbox-group-label">
@@ -61,8 +61,8 @@
             </div>
         </mat-grid-tile>
 
-        <mat-grid-tile [rowspan]="rowSpan">
-            <div class="w-3/5">
+        <mat-grid-tile [rowspan]="rowSpan" class="tile-left">
+            <div class="w-3/5 p-5">
                 <label id="diet-checkbox-group-label">3. How often do you go for a general medical checkup?</label>
                     <br>
                 <mat-radio-group formControlName="question3" [color]="'accent'" aria-labelledby="diet-checkbox-group-label">
@@ -84,7 +84,7 @@
         </mat-grid-tile>
 
         <mat-grid-tile [rowspan]="rowSpan">
-            <div class="w-9/10 p-2" formGroupName="question4">
+            <div class="w-9/10 p-5" formGroupName="question4">
                 <label>4. Do you experience any of the following in your living environment?</label>
                 <br>
                 <div role="checkbox" class="flex flex-wrap justify-start md:justify-around mt-4">
@@ -114,7 +114,7 @@
         </mat-grid-tile>
 
         <mat-grid-tile [rowspan]="rowSpan">
-            <div class="w-9/10 p-2" formGroupName="question5">
+            <div class="w-9/10 p-5" formGroupName="question5">
                 <label>5. Do you face mental health issues or constant stress/anxiety due to the following? </label>
                 <br>
                 <div role="checkbox" class="flex flex-wrap justify-start md:justify-around mt-4">

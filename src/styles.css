@@ -116,3 +116,7 @@ a:hover {
 span.mat-expansion-indicator.ng-tns-c50-7.ng-trigger.ng-trigger-indicatorRotate.ng-star-inserted::after {
     border-color: black;
 }
+
+.tile-left .mat-grid-tile-content {
+    justify-content: flex-start;
+}
