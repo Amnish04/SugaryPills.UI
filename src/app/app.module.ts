@@ -38,6 +38,7 @@ import {MatRippleModule} from '@angular/material/core';
 import {MatExpansionModule} from '@angular/material/expansion'; 
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner'; 
 import { LoadingInterceptor } from './interceptors/loading.interceptor';
+import {MatChipsModule} from '@angular/material/chips';
 
 @NgModule({
   declarations: [
@@ -80,7 +81,8 @@ import { LoadingInterceptor } from './interceptors/loading.interceptor';
     MatTableModule,
     MatRippleModule,
     MatExpansionModule,
-    MatProgressSpinnerModule
+    MatProgressSpinnerModule,
+    MatChipsModule
   ],
   providers: [
     {

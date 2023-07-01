@@ -26,4 +26,12 @@ export class LoginFormComponent {
 
         this.snackBar.open('Successfully Logged In', 'Yayy');
     }
+
+    //#region Info Chip
+
+    preventChipSelectionChange(evt: any) {
+        evt.source.selected = true;
+    }
+
+    //#endregion
 }

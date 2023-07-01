@@ -23,6 +23,9 @@
     --font-secondary: Roboto, "Helvetica Neue", sans-serif;
     --font-headings: 'Bree Serif', serif;
     --font-fancy: 'Arima', 'Times New Roman', Times, serif, cursive;
+
+    /* Others */
+    --overlay-z-index: 99999999
 }
 
 ::selection {

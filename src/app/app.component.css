@@ -7,7 +7,7 @@
     height: 100%;
 
     font-weight: bold;
-    z-index: 10000;
+    z-index: var(--overlay-z-index);
 }
 
 .spinner-overlay {
@@ -16,6 +16,7 @@
     left: 0;
     width: 100vw;
     height: 100vh;
+    z-index: var(--overlay-z-index);
 }
 
 .bg-loading {
