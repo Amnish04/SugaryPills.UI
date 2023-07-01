@@ -27,7 +27,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { MatRadioModule } from '@angular/material/radio';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { DoctorPageComponent } from './pages/info-pages/doctor-page/doctor-page.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { RiskPageComponent } from './pages/risk-page/risk-page.component';
 import { NgChartsModule } from 'ng2-charts';
 import { ReportsGridComponent } from './components/reports/reports-grid/reports-grid.component';
@@ -36,6 +36,8 @@ import { MatTabsModule } from '@angular/material/tabs';
 import { MatTableModule } from '@angular/material/table';
 import {MatRippleModule} from '@angular/material/core';
 import {MatExpansionModule} from '@angular/material/expansion'; 
+import {MatProgressSpinnerModule} from '@angular/material/progress-spinner'; 
+import { LoadingInterceptor } from './interceptors/loading.interceptor';
 
 @NgModule({
   declarations: [
@@ -77,9 +79,14 @@ import {MatExpansionModule} from '@angular/material/expansion';
     MatTabsModule,
     MatTableModule,
     MatRippleModule,
-    MatExpansionModule
+    MatExpansionModule,
+    MatProgressSpinnerModule
   ],
-  providers: [],
+  providers: [
+    {
+        provide: HTTP_INTERCEPTORS, useClass: LoadingInterceptor, multi: true
+    }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

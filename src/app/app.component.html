@@ -3,3 +3,11 @@
 <main>
     <router-outlet></router-outlet>
 </main>
+
+<!-- Show spinner whenever one or more HTTP requests are active -->
+<div *ngIf="loadingService.loading" class="spinner-overlay">
+    <div class="app-spinner">
+        <mat-spinner color="accent"></mat-spinner>
+        <p *ngIf="loadingService.showTooltip">Please stay tuned! The Free API needs to spin up.</p>
+    </div>
+</div>

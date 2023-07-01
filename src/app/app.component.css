@@ -1,0 +1,23 @@
+.app-spinner {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 0.25rem;
+    height: 100%;
+
+    font-weight: bold;
+    z-index: 10000;
+}
+
+.spinner-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+}
+
+.bg-loading {
+    opacity: 0.3;
+}

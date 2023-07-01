@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { LoadingService } from './services/loading/loading.service';
 
 @Component({
     selector: 'app-root',
@@ -7,6 +8,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
     title = 'SugaryPills.UI';
+
+    constructor(
+        public loadingService: LoadingService
+    ) {
+    }
 
     get showHeader() {
         return true; // for now
