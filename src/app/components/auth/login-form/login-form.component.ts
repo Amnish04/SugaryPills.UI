@@ -24,7 +24,9 @@ export class LoginFormComponent {
         this.router.navigate(['reports']);
         this.closeDialogButton?.nativeElement.click();
 
-        this.snackBar.open('Successfully Logged In', 'Yayy');
+        this.snackBar.open('Successfully Logged In', 'Yayy', {
+            duration: 1000 * 2
+        });
     }
 
     //#region Info Chip
