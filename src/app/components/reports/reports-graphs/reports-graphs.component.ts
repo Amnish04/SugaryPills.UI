@@ -1,4 +1,4 @@
-import { isMobile } from 'src/app/utilities/helper-functions';
+import { convertDecimalToPercentage, isMobile } from 'src/app/utilities/helper-functions';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { ChartConfiguration, ChartOptions } from 'chart.js';
@@ -144,6 +144,13 @@ export class ReportsGraphsComponent implements OnInit {
 
     public barChartOptions: ChartConfiguration<'bar'>['options'] = {
         responsive: true,
+        maintainAspectRatio: false,
+
+        scales: {
+            yAxis: {
+                max: 100
+            }
+        }
     };
 
     //#endregion
@@ -196,14 +203,10 @@ export class ReportsGraphsComponent implements OnInit {
                         this.generatedReports.dryIthcySkin.percentage,
                         this.generatedReports.weightLoss.percentage,
                         this.generatedReports.moodChanges.percentage,
-                    ].map(this.convertDecimalToPercentage), label: 'Percentage Affected'
+                    ].map(convertDecimalToPercentage), label: 'Percentage Affected'
                 },
-            ]
+            ]            
         };
-    }
-
-    convertDecimalToPercentage(value: any) {
-        return Number(value) * 100;
     }
 
     resetFilters() {
