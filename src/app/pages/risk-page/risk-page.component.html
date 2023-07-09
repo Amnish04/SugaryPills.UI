@@ -19,11 +19,11 @@
         {{riskStatus}}
     </p>
 
-    <div *ngIf="has3Symptoms" class="flex gap-3 mt-10 justify-center">
+    <div *ngIf="has3Symptoms" class="flex flex-wrap gap-3 mt-10 justify-center">
         <div class="rounded-full bg-red-500 w-8">
             <p class="text-center text-2xl font-bold">&excl;</p>
         </div>
-        <a [routerLink]="'doctors'" class="text-2xl">
+        <a [routerLink]="'/doctors'" class="text-2xl text-center text-blue-700 underline">
             You have more than 3 symptoms. You should consult a doctor
         </a>
     </div>
